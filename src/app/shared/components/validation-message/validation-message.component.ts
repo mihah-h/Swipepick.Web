@@ -15,9 +15,7 @@ import {CommonModule} from "@angular/common";
           Введен некорректный email
         </div>
         <div *ngIf="control.errors?.['minlength']">
-          Минимальная длина пароля
-          {{control.errors?.minlength.requiredLength}}
-          симвалов
+          Минимальная длина пароля 6 симвалов
         </div>
       </div>
     </div>

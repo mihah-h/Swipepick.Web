@@ -45,7 +45,6 @@ export class CreatingTestPageComponent implements OnInit{
     // this.numberOfQuestions++
     this.countQuestions.push(1)
     // console.log([].constructor(this.numberOfQuestions))
-    console.log(this.countQuestions)
   }
 
   createTest(createdTest: CreatedQuestion[]): void {
@@ -62,8 +61,9 @@ export class CreatingTestPageComponent implements OnInit{
   }
 
   v(r: number) {
+    this.countQuestions.slice(r + 1, r + 2)
+    console.log(this.countQuestions)
     console.log(r)
     // this.countQuestions.slice(r, 1)
-    console.log(this.countQuestions.slice(r + 1, r + 2))
   }
 }

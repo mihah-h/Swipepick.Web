@@ -12,7 +12,8 @@
 <button (click)="savingQuestions$.next()">даллее</button>
 <div *ngIf="num">
   {{num}}
+  <p>{{'https://swipepick-kolchin031.b4a.run/test/' + num.toString()}}</p>
   <ngx-qrcode
-      [value]="'http://localhost:4200/test/' + num.toString()"
+      [value]="'https://swipepick-kolchin031.b4a.run/test/' + num.toString()"
   ></ngx-qrcode>
 </div>

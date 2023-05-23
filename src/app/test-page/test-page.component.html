@@ -1,0 +1,44 @@
+<div class="background">
+  <div *ngIf="test; else loading">
+    <form *ngIf="isStart; else passingTest" [formGroup]="userDataForm">
+      <input type="text" formControlName="name">
+      <app-validation-message
+          [control]="userDataForm.controls['name']"
+      ></app-validation-message>
+      <input type="text" formControlName="lastname">
+      <app-validation-message
+          [control]="userDataForm.controls['lastname']"
+      ></app-validation-message>
+      <button (click)="isStart = false">Далее</button>
+    </form>
+    <ng-template #passingTest>
+      <div *ngIf="isEnd; else question" class="result_wrapper">
+        <div class="text"> Ваш результат
+          <div *ngIf="result || result === 0; else loadingResult" class="result">{{result}}/{{test.length}}</div>
+          <ng-template #loadingResult>
+            <div class="result">?/{{test.length}}</div>
+          </ng-template>
+        </div>
+        <a class="button_finish" [routerLink]="['/']">ЗАВЕРШИТЬ</a>
+      </div>
+      <ng-template #question>
+        <p class="number">{{questionNumber + 1}}/{{test.length}}</p>
+        <div class="wrapper">
+          <div class="question">{{test[questionNumber].questionContent}}</div>
+          <div class="responses">
+            <button *ngFor="let option of test[questionNumber].answers[0].answerVariants; let optionIndex = index"
+                    class="response"
+                    (click)="saveUserResponse(optionIndex)"
+                    >{{option.variant}}</button>
+          </div>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+  <ng-template #loading>
+    <div class="loading">
+      <img src="assets/images/loading.gif" alt="loading">
+    </div>
+  </ng-template>
+</div>
+

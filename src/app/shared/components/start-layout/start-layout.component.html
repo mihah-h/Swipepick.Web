@@ -1,0 +1,30 @@
+<header class="main-header">
+  <div class="wrapper">
+    <nav class="main-nav">
+      <a class="logo" [routerLink]="['/']" href="/">
+        <img src="./assets/images/logo.svg" alt="logo"/>
+      </a>
+      <ul class="site-navigation">
+        <li class="site-navigation-item">
+          <a *ngIf="auth.isAuthenticated(); else creatingLoginBlock" [routerLink]="['/profile', 'creating']">СОЗДАТЬ</a>
+          <ng-template #creatingLoginBlock>
+            <a [routerLink]="['/auth']">СОЗДАТЬ</a>
+          </ng-template>
+        </li>
+        <li class="site-navigation-item">
+          <a [routerLink]="['/begin']">ПРОЙТИ</a>
+        </li>
+        <li class="site-navigation-item">
+          <a [routerLink]="['/start', 'information']">О НАС</a>
+        </li>
+        <li class="site-navigation-item">
+          <a *ngIf="auth.isAuthenticated(); else loginBlock" [routerLink]="['/profile']">ПРОФИЛЬ</a>
+          <ng-template #loginBlock>
+            <a [routerLink]="['/auth']">ВОЙТИ</a>
+          </ng-template>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<router-outlet></router-outlet>

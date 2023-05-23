@@ -1,0 +1,12 @@
+<div *ngFor="let _ of [].constructor(numberOfQuestions); let questionNumber = index">
+  <app-question
+      [questionNumber]="questionNumber"
+      [savingQuestionsObservable$]="savingQuestionsObservable$"
+      (transmittingCreatedQuestion)="saveQuestion($event)"
+  ></app-question>
+</div>
+<button (click)="addQuestion()">добавить вопрос</button>
+<button (click)="savingQuestions$.next()">даллее</button>
+<div *ngIf="num">
+  {{num}}
+</div>

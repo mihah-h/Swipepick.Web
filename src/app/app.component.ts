@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthApiService} from "./shared/services/auth-api.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'Swipepicke.Web';
+export class AppComponent implements OnInit{
+
+  constructor(private auth: AuthApiService) {}
+
+  ngOnInit() {
+    // this.auth.autoLogin(localStorage.getItem('token')).subscribe()
+  }
+
 }

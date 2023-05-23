@@ -18,6 +18,8 @@ export class CreatingTestPageComponent implements OnInit{
   test: CreatedQuestion[] = []
   savingQuestions$!: Subject<void>
   num!: string
+  title: string = ''
+  countQuestions = [1]
 
   constructor(
     private testService: TestApiService,
@@ -40,7 +42,10 @@ export class CreatingTestPageComponent implements OnInit{
   }
 
   addQuestion(): void{
-    this.numberOfQuestions++
+    // this.numberOfQuestions++
+    this.countQuestions.push(1)
+    // console.log([].constructor(this.numberOfQuestions))
+    console.log(this.countQuestions)
   }
 
   createTest(createdTest: CreatedQuestion[]): void {
@@ -48,10 +53,17 @@ export class CreatingTestPageComponent implements OnInit{
       const test: CreatedTest = {
         userEmail: this.authService.userEmail,
         testDto: {
+          title: this.title,
           questions: createdTest
         }
       }
       this.testService.createTest(test).subscribe((response) => this.num = response)
     }
+  }
+
+  v(r: number) {
+    console.log(r)
+    // this.countQuestions.slice(r, 1)
+    console.log(this.countQuestions.slice(r + 1, r + 2))
   }
 }

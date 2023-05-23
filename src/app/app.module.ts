@@ -21,7 +21,7 @@ import { InformationPageComponent } from './information-page/information-page.co
 import { CreatingPageComponent } from './creating-page/creating-page.component';
 import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { QuestionComponent } from './shared/components/question/question.component';
-
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 @NgModule({
@@ -49,6 +49,7 @@ import { QuestionComponent } from './shared/components/question/question.compone
     RouterLink,
     ReactiveFormsModule,
     ValidationMessageComponent,
+    NgxQRCodeModule
 
   ],
   providers: [AuthApiService, TestApiService],

@@ -11,7 +11,7 @@ import {CreatedQuestion} from "../../interfaces/test-interfaces";
 export class QuestionComponent implements OnInit{
 
   questionForm!: FormGroup
-  correctAnswer = 0
+  correctAnswer!: AbstractControl
   SavingQuestionsObservableSub!: Subscription
 
   @Input()
@@ -31,6 +31,8 @@ export class QuestionComponent implements OnInit{
       ])
     })
 
+    this.correctAnswer = this.getAnswers().controls[0]
+
     this.SavingQuestionsObservableSub = this.savingQuestionsObservable$.subscribe(() => {
       const question: CreatedQuestion = {
         questionContent: this.questionForm.value.questionContent,
@@ -38,7 +40,7 @@ export class QuestionComponent implements OnInit{
           answerVariants: this.questionForm.value.answers.map((answer: string) => {
             return {variant: answer}
           }),
-          correctAnswer: this.correctAnswer
+          correctAnswer: this.getAnswers().controls.indexOf(this.correctAnswer)
         }]
 
       }
@@ -61,8 +63,8 @@ export class QuestionComponent implements OnInit{
     }
   }
 
-  setCorrectAnswer(correctAnswerIndex: number): void {
-    this.correctAnswer = correctAnswerIndex
+  setCorrectAnswer(answer: AbstractControl): void {
+    this.correctAnswer = answer
   }
 
   deleteAnswer(answerIndex: number): void {

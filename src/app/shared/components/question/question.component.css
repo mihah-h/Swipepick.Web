@@ -5,3 +5,18 @@
 .wrong {
   background-color: crimson;
 }
+
+.input {
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  font-size: 18px;
+  color: #42445A;
+  height: 54px;
+  border-radius: 14px;
+  border: 3px solid #42445A;
+  padding-left: 10px;
+}
+
+.input.ng-touched.ng-invalid {
+  border-color: crimson;
+}

@@ -1,8 +1,8 @@
 <p>Введите название теста</p>
-<input type="text" [ngModel]="title">
+<input type="text" [(ngModel)]="title">
 <div *ngFor="let _ of countQuestions; let questionNumber = index">
   <app-question
-      [questionNumber]="questionNumber"
+      [questionNumber]="_"
       [savingQuestionsObservable$]="savingQuestionsObservable$"
       (transmittingCreatedQuestion)="saveQuestion($event)"
   ></app-question>

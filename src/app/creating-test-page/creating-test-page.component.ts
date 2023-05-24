@@ -42,8 +42,8 @@ export class CreatingTestPageComponent implements OnInit{
   }
 
   addQuestion(): void{
-    // this.numberOfQuestions++
-    this.countQuestions.push(1)
+    this.numberOfQuestions++
+    this.countQuestions.push(this.numberOfQuestions)
     // console.log([].constructor(this.numberOfQuestions))
   }
 
@@ -56,14 +56,14 @@ export class CreatingTestPageComponent implements OnInit{
           questions: createdTest
         }
       }
+      console.log(test)
       this.testService.createTest(test).subscribe((response) => this.num = response)
     }
   }
 
   v(r: number) {
-    this.countQuestions.slice(r + 1, r + 2)
+    this.countQuestions.splice(r + 1, 1)
     console.log(this.countQuestions)
-    console.log(r)
     // this.countQuestions.slice(r, 1)
   }
 }

@@ -41,6 +41,7 @@ export  interface CreatedTest {
 }
 
 export interface TestDto {
+  title: string
   questions: CreatedQuestion[]
 }
 

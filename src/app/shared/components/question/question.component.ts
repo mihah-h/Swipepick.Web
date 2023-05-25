@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {AbstractControl, FormArray, FormControl, FormGroup} from "@angular/forms";
+import {AbstractControl, FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Observable, Observer, Subject, Subscription} from "rxjs";
 import {CreatedQuestion} from "../../interfaces/test-interfaces";
 
@@ -11,7 +11,7 @@ import {CreatedQuestion} from "../../interfaces/test-interfaces";
 export class QuestionComponent implements OnInit{
 
   questionForm!: FormGroup
-  correctAnswer = 0
+  correctAnswer!: AbstractControl
   SavingQuestionsObservableSub!: Subscription
 
   @Input()
@@ -23,13 +23,18 @@ export class QuestionComponent implements OnInit{
   @Output()
   transmittingCreatedQuestion = new EventEmitter<CreatedQuestion>();
 
+  @Output()
+  deleteQuestionEvent = new EventEmitter<number>();
+
   ngOnInit(): void {
     this.questionForm = new FormGroup({
-      questionContent: new FormControl(null),
+      questionContent: new FormControl(null, [Validators.required]),
       answers: new FormArray([
-        new FormControl(null)
+        new FormControl(null, [Validators.required])
       ])
     })
+
+    this.correctAnswer = this.getAnswers().controls[0]
 
     this.SavingQuestionsObservableSub = this.savingQuestionsObservable$.subscribe(() => {
       const question: CreatedQuestion = {
@@ -38,7 +43,7 @@ export class QuestionComponent implements OnInit{
           answerVariants: this.questionForm.value.answers.map((answer: string) => {
             return {variant: answer}
           }),
-          correctAnswer: this.correctAnswer
+          correctAnswer: this.getAnswers().controls.indexOf(this.correctAnswer)
         }]
 
       }
@@ -57,15 +62,25 @@ export class QuestionComponent implements OnInit{
 
   addAnswers(): void{
     if (this.getAnswers().length < 4) {
-      (this.getAnswers().push(new FormControl(null)))
+      (this.getAnswers().push(new FormControl(null, [Validators.required])))
     }
   }
 
-  setCorrectAnswer(correctAnswerIndex: number): void {
-    this.correctAnswer = correctAnswerIndex
+  setCorrectAnswer(answer: AbstractControl): void {
+    this.correctAnswer = answer
   }
 
   deleteAnswer(answerIndex: number): void {
-    this.getAnswers().removeAt(answerIndex)
+    if (this.getAnswers().value.length > 1 && this.getAnswers().controls[answerIndex] === this.correctAnswer) {
+      this.getAnswers().removeAt(answerIndex)
+      this.correctAnswer = this.getAnswers().controls[0]
+    } else if (this.getAnswers().value.length > 1) {
+      this.getAnswers().removeAt(answerIndex)
+    }
+  }
+
+  deleteQuestion() {
+    this.deleteQuestionEvent.next(this.questionNumber)
+    this.SavingQuestionsObservableSub.unsubscribe()
   }
 }

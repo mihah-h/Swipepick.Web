@@ -1,12 +1,23 @@
-<div *ngFor="let _ of [].constructor(numberOfQuestions); let questionNumber = index">
-  <app-question
-      [questionNumber]="questionNumber"
-      [savingQuestionsObservable$]="savingQuestionsObservable$"
-      (transmittingCreatedQuestion)="saveQuestion($event)"
-  ></app-question>
+<div *ngIf="createdTestId; else create">
+  <p>Код теста: {{createdTestId}}</p>
+  <p>Ссылка: </p>
+  <a [routerLink]="['/test', createdTestId]">{{'https://swipepick-kolchin031.b4a.run/test/' + createdTestId.toString()}}</a>
+  <p>Qr-code</p>
+  <ngx-qrcode
+      [value]="'https://swipepick-kolchin031.b4a.run/test/' + createdTestId.toString()"
+  ></ngx-qrcode>
 </div>
-<button (click)="addQuestion()">добавить вопрос</button>
-<button (click)="savingQuestions$.next()">даллее</button>
-<div *ngIf="num">
-  {{num}}
-</div>
+<ng-template #create>
+  <p>Введите название теста</p>
+  <input class="input" type="text" [formControl]="title">
+  <div *ngFor="let _ of numberOfQuestions; let questionNumber = index">
+    <app-question #question
+        [questionNumber]="questionNumber"
+        [savingQuestionsObservable$]="savingQuestionsObservable$"
+        (transmittingCreatedQuestion)="saveQuestion($event)"
+        (deleteQuestionEvent)="del($event)"
+    ></app-question>
+  </div>
+  <button (click)="addQuestion()">добавить вопрос</button>
+  <button [disabled]="validation()" (click)="savingQuestions$.next()">даллее</button>
+</ng-template>

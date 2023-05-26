@@ -1,12 +1,11 @@
 import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {AuthApiService} from "../shared/services/auth-api.service";
-import {AbstractControl, FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
+import {FormControl, Validators} from "@angular/forms";
 import {Observable, Subject} from "rxjs";
 import {CreatedQuestion, CreatedTest} from "../shared/interfaces/test-interfaces";
 import {TestApiService} from "../shared/services/test-api.service";
-import {TestPageComponent} from "../test-page/test-page.component";
 import {QuestionComponent} from "../shared/components/question/question.component";
+import {QrcodeComponent} from "@techiediaries/ngx-qrcode/lib/qrcode.component";
 
 @Component({
   selector: 'app-creating-test-page',
@@ -23,7 +22,6 @@ export class CreatingTestPageComponent implements OnInit{
 
   @ViewChildren('question')
   questionComponents!: QueryList<QuestionComponent>
-
 
   constructor(
     private testService: TestApiService,
@@ -79,5 +77,33 @@ export class CreatingTestPageComponent implements OnInit{
       return false
     }
     return true
+  }
+
+  public downloadQRCode() {
+    const fileNameToDownload = 'qrcode_swipepick';
+    // @ts-ignore
+    const base64Img = document.getElementsByClassName('coolQRCode')[0].children[0]['src'];
+    fetch(base64Img)
+      .then(res => res.blob())
+      .then((blob) => {
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = fileNameToDownload;
+          link.click();
+      })
+  }
+
+  public async copyQRCode() {
+    // @ts-ignore
+    const imgURL = document.getElementsByClassName('coolQRCode')[0].children[0]['src'];
+    const data = await fetch(imgURL)
+    const blob = await data.blob()
+
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob
+      })
+    ])
   }
 }

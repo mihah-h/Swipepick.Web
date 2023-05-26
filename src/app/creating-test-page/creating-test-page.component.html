@@ -1,11 +1,31 @@
-<div *ngIf="createdTestId; else create">
-  <p>Код теста: {{createdTestId}}</p>
-  <p>Ссылка: </p>
-  <a [routerLink]="['/test', createdTestId]">{{'https://swipepick-kolchin031.b4a.run/test/' + createdTestId.toString()}}</a>
-  <p>Qr-code</p>
-  <ngx-qrcode
-      [value]="'https://swipepick-kolchin031.b4a.run/test/' + createdTestId.toString()"
-  ></ngx-qrcode>
+<div class="wrapper-created" *ngIf="createdTestId; else create">
+  <div class="test-created-text">Тест успешно создан</div>
+  <div class="information-wrapper">
+    <div class="left-information">
+      <div class="name">Название: <span class="name-value">{{title.value}}</span></div>
+      <div class="name">Код: <span class="name-value">{{createdTestId}}</span></div>
+      <div class="name">
+      Ссылка:
+      <a class="link-value" [routerLink]="['/test', createdTestId]">
+        {{'https://swipepick-kolchin031.b4a.run/test/' + createdTestId.toString()}}
+      </a>
+      </div>
+    </div>
+  <div class="qr-code-wrapper">
+    <ngx-qrcode [width]="200" colorDark="#42445A" colorLight="#DDEAEE" class="qr-code"
+        cssClass="coolQRCode"
+        [value]="'https://swipepick-kolchin031.b4a.run/test/' + createdTestId.toString()"
+    ></ngx-qrcode>
+    <div class="copy-wrapper">
+      <button class="copy" (click)="copyQRCode()">скопировать</button>
+      <button class="dow" (click)="downloadQRCode()"><img src="../../assets/images/download.svg"></button>
+    </div>
+  </div>
+  </div>
+  <a
+      class="send_button"
+      [routerLink]="['/profile']"
+  >ГОТОВО</a>
 </div>
 <ng-template #create>
   <div class="wrapper">

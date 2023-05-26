@@ -85,3 +85,106 @@
 .test-name.ng-touched.ng-invalid {
   border-color: #FF595E;
 }
+
+.wrapper-created {
+  margin: auto;
+  max-width: 800px;
+}
+
+.test-created-text {
+  margin: auto;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 25px;
+}
+
+.information-wrapper {
+  display: flex;
+  margin-top: 70px;
+}
+
+.left-information {
+}
+
+.name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.name-value {
+  font-weight: 600;
+}
+
+.link-value {
+  text-decoration-line: underline;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.link-value:hover {
+  color: #2F3034;
+}
+
+.qr-code-wrapper {
+}
+
+.qr-code {
+  height: 200px;
+}
+
+.copy-wrapper {
+  display: flex;
+  margin: auto;
+}
+
+.copy {
+  color: #42445A;
+  font-family: 'Oswald';
+  text-decoration-line: underline;
+  background-color: #DDEAEE;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  width: 120px;
+  margin-right: 5px;
+  margin-left: 18px;
+}
+
+.copy:hover {
+  color: #2F3034;
+}
+
+.dow {
+  background-color: #DDEAEE;
+  width: 30px;
+  margin-left: 5px;
+}
+
+.send_button {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 45px;
+  display: block;
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 20px;
+  color: #42445A;
+  border-radius: 14px;
+  height: 54px;
+  margin-left: 588px;
+  margin-top: 25px;
+  border: #42445A 5px solid;
+  width: 200px;
+}
+
+.send_button:hover {
+  color: #2F3034;
+  border-color: #2F3034;
+}

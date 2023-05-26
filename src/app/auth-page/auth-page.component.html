@@ -1,120 +1,119 @@
-<div class="background">
-  <div class="form_wrapper">
-    <a class="logo" [routerLink]="['/']" href="/">
-      <img src="./assets/images/logo2.svg" alt="logo"/>
-    </a>
-    <div class="login_form">
-      <div class="button_wrapper">
+<div class="form_wrapper">
+  <a class="logo" [routerLink]="['/']" href="/">
+    <img src="./assets/images/logo2.svg" alt="logo"/>
+  </a>
+  <div class="login_form">
+    <div class="button_wrapper">
+      <button
+          class="login"
+          [ngClass]="{button_switch: !isLogin, button_switch_activated: isLogin}"
+          (click)="replaceForm(true)"
+      >ВХОД</button>
+      <button
+          [ngClass]="{button_switch: isLogin, button_switch_activated: !isLogin}"
+          (click)="replaceForm(false)"
+      >РЕГИСТРАЦИЯ</button>
+    </div>
+    <form
+        *ngIf="isLogin; else registrationFormBlock"
+        [formGroup]="loginForm"
+        (ngSubmit)="loginSubmit()"
+    >
+      <div class="registration_inputs">
+        <div class="input_wrapper">
+          <label for="emailLogin">Ваш E-mail</label>
+          <input
+              class="input"
+              id="emailLogin"
+              type="email"
+              formControlName="emailLogin"
+          />
+          <app-validation-message
+              [control]="loginForm.controls['emailLogin']"
+          ></app-validation-message>
+        </div>
+        <div class="input_wrapper">
+          <label for="passwordLogin">Ваш пароль</label>
+          <input
+              class="input"
+              id="passwordLogin"
+              type="password"
+              formControlName="passwordLogin"
+          />
+          <app-validation-message
+              [control]="loginForm.controls['passwordLogin']"
+          ></app-validation-message>
+        </div>
         <button
-            [ngClass]="{button_switch: !isLogin, button_switch_activated: isLogin}"
-            (click)="replaceForm(true)"
-        >ВХОД</button>
-        <button
-            [ngClass]="{button_switch: isLogin, button_switch_activated: !isLogin}"
-            (click)="replaceForm(false)"
-        >РЕГИСТРАЦИЯ</button>
+            type="submit"
+            class="send_button"
+            [disabled]="loginForm.invalid"
+        >ВОЙТИ</button>
       </div>
+    </form>
+
+    <ng-template #registrationFormBlock>
       <form
-          *ngIf="isLogin; else registrationFormBlock"
-          [formGroup]="loginForm"
-          (ngSubmit)="loginSubmit()"
+          [formGroup]="registrationForm"
+          (ngSubmit)="registerSubmit()"
       >
         <div class="registration_inputs">
           <div class="input_wrapper">
-            <label for="emailLogin">Ваш E-mail</label>
+            <label for="emailRegister">Ваш E-mail</label>
             <input
                 class="input"
-                id="emailLogin"
+                id="emailRegister"
                 type="email"
-                formControlName="emailLogin"
+                formControlName="emailRegister"
             />
             <app-validation-message
-                [control]="loginForm.controls['emailLogin']"
+                [control]="registrationForm.controls['emailRegister']"
             ></app-validation-message>
           </div>
           <div class="input_wrapper">
-            <label for="passwordLogin">Ваш пароль</label>
-            <input
-                class="input"
-                id="passwordLogin"
-                type="password"
-                formControlName="passwordLogin"
+            <label for="passwordRegister">Придумайте пароль</label>
+            <input class="input"
+                   id="passwordRegister"
+                   type="password"
+                   formControlName="passwordRegister"
             />
             <app-validation-message
-                [control]="loginForm.controls['passwordLogin']"
+                [control]="registrationForm.controls['passwordRegister']"
+            ></app-validation-message>
+          </div>
+          <div class="input_wrapper">
+            <label for="nameRegister">Ваше имя</label>
+            <input
+                class="input"
+                id="nameRegister"
+                type="text"
+                formControlName="nameRegister"
+            />
+            <app-validation-message
+                [control]="registrationForm.controls['nameRegister']"
+            ></app-validation-message>
+          </div>
+          <div class="input_wrapper">
+            <label for="lastnameRegister">Ваша фамилия</label>
+            <input
+                class="input"
+                id="lastnameRegister"
+                type="text"
+                formControlName="lastnameRegister"
+            />
+            <app-validation-message
+                [control]="registrationForm.controls['lastnameRegister']"
             ></app-validation-message>
           </div>
           <button
               type="submit"
               class="send_button"
-              [disabled]="loginForm.invalid"
-          >ВОЙТИ</button>
+              [disabled]="registrationForm.invalid"
+          >ЗАРЕГИСТРИРОВАТЬСЯ</button>
         </div>
       </form>
+    </ng-template>
 
-      <ng-template #registrationFormBlock>
-        <form
-            [formGroup]="registrationForm"
-            (ngSubmit)="registerSubmit()"
-        >
-          <div class="registration_inputs">
-            <div class="input_wrapper">
-              <label for="emailRegister">Ваш E-mail</label>
-              <input
-                  class="input"
-                  id="emailRegister"
-                  type="email"
-                  formControlName="emailRegister"
-              />
-              <app-validation-message
-                  [control]="registrationForm.controls['emailRegister']"
-              ></app-validation-message>
-            </div>
-            <div class="input_wrapper">
-              <label for="passwordRegister">Придумайте пароль</label>
-              <input class="input"
-                     id="passwordRegister"
-                     type="password"
-                     formControlName="passwordRegister"
-              />
-              <app-validation-message
-                  [control]="registrationForm.controls['passwordRegister']"
-              ></app-validation-message>
-            </div>
-            <div class="input_wrapper">
-              <label for="nameRegister">Ваше имя</label>
-              <input
-                  class="input"
-                  id="nameRegister"
-                  type="text"
-                  formControlName="nameRegister"
-              />
-              <app-validation-message
-                  [control]="registrationForm.controls['nameRegister']"
-              ></app-validation-message>
-            </div>
-            <div class="input_wrapper">
-              <label for="lastnameRegister">Ваша фамилия</label>
-              <input
-                  class="input"
-                  id="lastnameRegister"
-                  type="text"
-                  formControlName="lastnameRegister"
-              />
-              <app-validation-message
-                  [control]="registrationForm.controls['lastnameRegister']"
-              ></app-validation-message>
-            </div>
-            <button
-                type="submit"
-                class="send_button"
-                [disabled]="registrationForm.invalid"
-            >ЗАРЕГИСТРИРОВАТЬСЯ</button>
-          </div>
-        </form>
-      </ng-template>
-
-    </div>
   </div>
 </div>
 

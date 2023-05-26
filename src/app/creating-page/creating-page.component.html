@@ -1,3 +1,9 @@
-<div>Хотите создать тест или опрос?</div>
-<a [routerLink]="['/profile', 'creating-test']">тест</a>
-<a [routerLink]="['/profile', 'creating-test']">опрос</a>
+<div class="wrapper">
+  <div class="choicebox">
+    <div class="choice">Хотите создать тест или опрос?</div>
+    <div class="container">
+        <a class="testbox" [routerLink]="['/profile', 'creating-test']">тест</a>
+        <a class="surveybox" [routerLink]="['/profile', 'creating-test']">опрос</a>
+    </div>
+  </div>
+</div>

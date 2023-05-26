@@ -1,0 +1,88 @@
+
+
+.wrapper{
+  max-width: 702px;
+  margin:auto;
+}
+
+.choicebox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:702px;
+  height: 240px;
+  margin-top: 130px;
+}
+
+.choice{
+  width: 710px;
+  height: 40px;
+
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 47px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  color: #42445A;
+}
+
+.testbox{
+  box-sizing: border-box;
+  width: 350px;
+  height: 150px;
+  background: #DDEAEE;
+  border: 4px solid #42445A;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 41px;
+  color: #42445A;
+}
+
+
+.surveybox{
+  box-sizing: border-box;
+  width: 350px;
+  height: 150px;
+  color: #42445A;
+  background: #DDEAEE;
+  border: 4px solid #42445A;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 41px;
+}
+
+
+.container{
+  display:flex;
+  justify-content: space-between;
+  width: 720px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.testbox:hover {
+  color: #2F3034;
+  border-color: #2F3034;
+}
+
+.surveybox:hover {
+  color: #2F3034;
+  border-color: #2F3034;
+}

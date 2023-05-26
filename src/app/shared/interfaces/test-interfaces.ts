@@ -1,7 +1,7 @@
 export interface Question {
   questionId: number,
   questionContent: string,
-  answers: Answer[]
+  answer: Answer
 }
 
 export interface Answer {
@@ -47,7 +47,7 @@ export interface TestDto {
 
 export interface CreatedQuestion {
   questionContent: string
-  answers: CreatedAnswers[]
+  answer: CreatedAnswers
 }
 
 export interface CreatedAnswers {

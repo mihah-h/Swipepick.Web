@@ -56,7 +56,7 @@ export class TestPageComponent implements OnInit, OnDestroy{
 
   saveUserResponse(answerNumber: number) {
     this.answers.push({
-      questionId: this.test[this.questionNumber].answers[0].questionId,
+      questionId: this.test[this.questionNumber].answer.questionId,
       answerCode: answerNumber
     })
     if (this.questionNumber + 1 === this.test.length) {

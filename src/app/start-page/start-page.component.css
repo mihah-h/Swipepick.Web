@@ -1,13 +1,14 @@
 /* header главной страницы*/
 
 .main-header {
-  background-color: #42445A;
+  background-color: #DDEAEE;
   font-weight: 500;
   font-size: 20px;
-  color: #DDEAEE;
+  color: #42445A;
   height: 68px;
   padding: 10px 0;
   position: sticky;
+  border-bottom: #42445A solid 4px;
   top: 0;
 }
 
@@ -35,7 +36,7 @@
 }
 
 .site-navigation-item:hover {
-  color: #8CACD0;
+  color: #2F3034;
 }
 
 .site-navigation-item:last-child {
@@ -43,7 +44,7 @@
 }
 
 .site-navigation-item:last-child:hover {
-  color: #DDEAEE;
+  color: #2F3034;
 }
 
 .authorization {
@@ -56,7 +57,7 @@
 
 .authorization:hover {
   background-image: url("../../assets/images/entrance-2.svg");
-  color: #8CACD0;
+  color: #2F3034;
 }
 /* main главной страницы*/
 
@@ -70,10 +71,11 @@
   display: grid;
   grid-template-columns: 242px 1fr;
   gap: 50px;
-
-  background-color: #8CACD0;
+ border: #42445A solid 6px;
+  background-color: #DDEAEE;
   border-radius: 20px;
-  color: #DDEAEE;
+
+  color: #42445A;
   padding: 30px 60px;
 }
 
@@ -101,15 +103,16 @@
 }
 
 .little-navigation-item-link {
-  background-color: #42445A;
+  background-color: #DDEAEE;
   border-radius: 15px;
   padding: 10px;
   margin-right: 15px;
+  border: #42445A solid 4px;
 }
 
 .little-navigation-item-link:hover {
-  background-color: #DDEAEE;
-  color: #42445A;
+  color: #2F3034;
+  border-color: #2F3034;
 }
 
 .main-heading-description {

@@ -39,12 +39,12 @@ export class QuestionComponent implements OnInit{
     this.SavingQuestionsObservableSub = this.savingQuestionsObservable$.subscribe(() => {
       const question: CreatedQuestion = {
         questionContent: this.questionForm.value.questionContent,
-        answers: [{
+        answer: {
           answerVariants: this.questionForm.value.answers.map((answer: string) => {
             return {variant: answer}
           }),
           correctAnswer: this.getAnswers().controls.indexOf(this.correctAnswer)
-        }]
+        }
 
       }
 

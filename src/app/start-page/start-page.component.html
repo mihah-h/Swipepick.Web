@@ -10,10 +10,20 @@
       </div>
       <ul class="little-navigation">
         <li class="little-navigation-item">
-          <a href="#" class="little-navigation-item-link">СОЗДАТЬ</a>
+          <a
+              *ngIf="auth.isAuthenticated(); else creatingLoginBlock"
+              class="little-navigation-item-link"
+              [routerLink]="['/profile', 'creating']"
+          >СОЗДАТЬ</a>
+          <ng-template #creatingLoginBlock>
+            <a
+                class="little-navigation-item-link"
+                [routerLink]="['/auth']"
+            >СОЗДАТЬ</a>
+          </ng-template>
         </li>
         <li class="little-navigation-item">
-          <a href="#" class="little-navigation-item-link">ПРОЙТИ</a>
+          <a [routerLink]="['/begin']" class="little-navigation-item-link">ПРОЙТИ</a>
         </li>
       </ul>
     </section>

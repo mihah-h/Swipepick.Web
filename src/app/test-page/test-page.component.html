@@ -1,44 +1,81 @@
-<div class="background">
-  <div *ngIf="test; else loading">
-    <form *ngIf="isStart; else passingTest" [formGroup]="userDataForm">
-      <input type="text" formControlName="name">
-      <app-validation-message
-          [control]="userDataForm.controls['name']"
-      ></app-validation-message>
-      <input type="text" formControlName="lastname">
-      <app-validation-message
-          [control]="userDataForm.controls['lastname']"
-      ></app-validation-message>
-      <button (click)="isStart = false">Далее</button>
-    </form>
-    <ng-template #passingTest>
-      <div *ngIf="isEnd; else question" class="result_wrapper">
-        <div class="text"> Ваш результат
-          <div *ngIf="result || result === 0; else loadingResult" class="result">{{result}}/{{test.length}}</div>
-          <ng-template #loadingResult>
-            <div class="result">?/{{test.length}}</div>
-          </ng-template>
+
+<div *ngIf="test; else loading">
+  <form class="form_wrapper" *ngIf="isStart; else passingTest" [formGroup]="userDataForm">
+    <a class="logo" [routerLink]="['/']">
+      <img src="./assets/images/logo2.svg" alt="logo"/>
+    </a>
+    <div class="login_form">
+      <div class="registration_inputs">
+        <div class="input_wrapper">
+          <label for="name">Ваше имя</label>
+          <input
+              class="input"
+              type="text"
+              id="name"
+              formControlName="name"
+          >
+          <app-validation-message
+              [control]="userDataForm.controls['name']"
+          ></app-validation-message>
         </div>
-        <a class="button_finish" [routerLink]="['/']">ЗАВЕРШИТЬ</a>
+        <div class="input_wrapper">
+          <label for="lastname">Ваша фамилия</label>
+          <input
+              class="input"
+              type="text"
+              id="lastname"
+              formControlName="lastname"
+          >
+          <app-validation-message
+              [control]="userDataForm.controls['lastname']"
+          ></app-validation-message>
+        </div>
+        <button class="send_button" (click)="isStart = false">НАЧАТЬ</button>
       </div>
-      <ng-template #question>
-        <p class="number">{{questionNumber + 1}}/{{test.length}}</p>
-        <div class="wrapper">
-          <div class="question">{{test[questionNumber].questionContent}}</div>
-          <div class="responses">
-            <button *ngFor="let option of test[questionNumber].answers[0].answerVariants; let optionIndex = index"
+    </div>
+  </form>
+  <ng-template #passingTest>
+    <div *ngIf="isEnd; else question" class="result_wrapper">
+      <div class="text"> Ваш результат
+        <div *ngIf="result || result === 0; else loadingResult" class="result">{{result}}/{{test.length}}</div>
+        <ng-template #loadingResult>
+          <div class="result">?/{{test.length}}</div>
+        </ng-template>
+      </div>
+      <a class="button_finish" [routerLink]="['/']">ЗАВЕРШИТЬ</a>
+    </div>
+    <ng-template #question>
+      <p class="number">{{questionNumber + 1}}/{{test.length}}</p>
+      <div class="wrapper">
+        <div class="question">{{test[questionNumber].questionContent}}</div>
+        <div class="responses">
+          <div
+            *ngFor="let option of test[questionNumber].answer.answerVariants;
+            let optionIndex = index" class="response_wrap"
+            class="response_wrap"
+          >
+            <div
+                class="color"
+                [ngClass]="{red: optionIndex === 0,
+                 yellow: optionIndex === 1,
+                 green: optionIndex === 2,
+                 blue: optionIndex === 3}"
+            ></div>
+            <button
                     class="response"
                     (click)="saveUserResponse(optionIndex)"
-                    >{{option.variant}}</button>
+            >
+              {{option.variant}}
+            </button>
           </div>
         </div>
-      </ng-template>
+      </div>
     </ng-template>
-  </div>
-  <ng-template #loading>
-    <div class="loading">
-      <img src="assets/images/loading.gif" alt="loading">
-    </div>
   </ng-template>
 </div>
+<ng-template #loading>
+  <div class="loading">
+    <img src="assets/images/loading.gif" alt="loading">
+  </div>
+</ng-template>
 

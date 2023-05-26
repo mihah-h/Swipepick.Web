@@ -15,7 +15,6 @@ import {QuestionComponent} from "../shared/components/question/question.componen
 })
 export class CreatingTestPageComponent implements OnInit{
 
-  testForm!: FormGroup
   test: CreatedQuestion[] = []
   savingQuestions$!: Subject<void>
   createdTestId!: string

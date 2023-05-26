@@ -116,7 +116,7 @@
 .response_wrap {
   background-color: #DDEAEE;
   border-radius: 14px;
-  outline: #42445A solid 4px;
+  outline: #42445A solid 6px;
   width: 320px;
   height: 150px;
 }
@@ -215,7 +215,7 @@
 .color {
   height: 30px;
   border-radius: 14px;
-  outline: #42445A solid 4px;
+  outline: #42445A solid 6px;
 }
 
 .red {

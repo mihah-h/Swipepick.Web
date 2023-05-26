@@ -20,6 +20,9 @@ export class QuestionComponent implements OnInit{
   @Input()
   savingQuestionsObservable$!: Observable<void>
 
+  @Input()
+  numberOfQuestions!: number[]
+
   @Output()
   transmittingCreatedQuestion = new EventEmitter<CreatedQuestion>();
 
@@ -80,7 +83,9 @@ export class QuestionComponent implements OnInit{
   }
 
   deleteQuestion() {
-    this.deleteQuestionEvent.next(this.questionNumber)
-    this.SavingQuestionsObservableSub.unsubscribe()
+    if (this.numberOfQuestions.length > 1) {
+      this.deleteQuestionEvent.next(this.questionNumber)
+      this.SavingQuestionsObservableSub.unsubscribe()
+    }
   }
 }

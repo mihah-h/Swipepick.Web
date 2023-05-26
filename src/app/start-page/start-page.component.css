@@ -71,7 +71,7 @@
   display: grid;
   grid-template-columns: 242px 1fr;
   gap: 50px;
- border: #42445A solid 6px;
+  border: #42445A solid 6px;
   background-color: #DDEAEE;
   border-radius: 20px;
 

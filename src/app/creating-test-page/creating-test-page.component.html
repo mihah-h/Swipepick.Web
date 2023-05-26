@@ -18,6 +18,7 @@
         <app-question #question
                       [questionNumber]="questionNumber"
                       [savingQuestionsObservable$]="savingQuestionsObservable$"
+                      [numberOfQuestions]="numberOfQuestions"
                       (transmittingCreatedQuestion)="saveQuestion($event)"
                       (deleteQuestionEvent)="del($event)"
         ></app-question>

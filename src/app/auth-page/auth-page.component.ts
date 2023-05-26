@@ -70,7 +70,7 @@ export class AuthPageComponent implements OnInit{
     this.auth.login(user).subscribe(() => {
       this.loginForm.reset()
       this.submitted = false
-      this.router.navigate(['/'])
+      this.router.navigate(['/profile'])
     }, (r) => {
       console.log(r)
       this.submitted = false
@@ -96,7 +96,7 @@ export class AuthPageComponent implements OnInit{
         password: user.password
       }
       this.auth.login(userLogin).subscribe(() =>
-        this.router.navigate(['/'])
+        this.router.navigate(['/profile'])
       )
       this.registrationForm.reset()
 

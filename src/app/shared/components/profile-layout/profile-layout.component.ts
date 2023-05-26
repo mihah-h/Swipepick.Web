@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthApiService} from "../../services/auth-api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile-layout',
@@ -8,5 +9,11 @@ import {AuthApiService} from "../../services/auth-api.service";
 })
 export class ProfileLayoutComponent {
 
-  constructor(public auth: AuthApiService) {}
+  constructor(
+    public auth: AuthApiService,
+  ) {}
+
+  logOut() {
+    this.auth.logout()
+  }
 }

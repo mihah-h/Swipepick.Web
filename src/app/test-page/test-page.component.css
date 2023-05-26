@@ -143,6 +143,14 @@
   margin-right: 25px;
 }
 
+.logo-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 15px;
+  margin-left: 25px;
+}
+
 .result_wrapper {
   background-color: #DDEAEE;
   outline: solid #42445A 6px;
@@ -219,9 +227,10 @@
 }
 
 .green {
-  background-color: #8AC926;
+  background-color: #35B85A;
 }
 
 .blue {
   background-color: #1982C4;
 }
+

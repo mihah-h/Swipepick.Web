@@ -8,16 +8,23 @@
   ></ngx-qrcode>
 </div>
 <ng-template #create>
-  <p>Введите название теста</p>
-  <input class="input" type="text" [formControl]="title">
-  <div *ngFor="let _ of numberOfQuestions; let questionNumber = index">
-    <app-question #question
-        [questionNumber]="questionNumber"
-        [savingQuestionsObservable$]="savingQuestionsObservable$"
-        (transmittingCreatedQuestion)="saveQuestion($event)"
-        (deleteQuestionEvent)="del($event)"
-    ></app-question>
+  <div class="wrapper">
+    <div class="test-name-block">
+      <input class="test-name" type="text" placeholder="Введите название теста" [formControl]="title">
+      <button class="create" [disabled]="validation()" (click)="savingQuestions$.next()">СОЗДАТЬ</button>
+    </div>
+    <div class="questions-wrapper">
+      <div *ngFor="let _ of numberOfQuestions; let questionNumber = index">
+        <app-question #question
+                      [questionNumber]="questionNumber"
+                      [savingQuestionsObservable$]="savingQuestionsObservable$"
+                      (transmittingCreatedQuestion)="saveQuestion($event)"
+                      (deleteQuestionEvent)="del($event)"
+        ></app-question>
+      </div>
+      <button class="addQuestion" (click)="addQuestion()">
+        <img src="../../../../assets/images/plus%202.svg">
+      </button>
+    </div>
   </div>
-  <button (click)="addQuestion()">добавить вопрос</button>
-  <button [disabled]="validation()" (click)="savingQuestions$.next()">даллее</button>
 </ng-template>

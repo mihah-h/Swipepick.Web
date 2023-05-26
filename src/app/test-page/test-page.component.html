@@ -45,6 +45,9 @@
       <a class="button_finish" [routerLink]="['/']">ЗАВЕРШИТЬ</a>
     </div>
     <ng-template #question>
+      <a class="logo-fix" [routerLink]="['/']">
+        <img src="./assets/images/logo2.svg" alt="logo"/>
+      </a>
       <p class="number">{{questionNumber + 1}}/{{test.length}}</p>
       <div class="wrapper">
         <div class="question">{{test[questionNumber].questionContent}}</div>

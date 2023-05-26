@@ -6,26 +6,23 @@
       </a>
       <ul class="site-navigation">
         <li class="site-navigation-item">
-          <a *ngIf="auth.isAuthenticated(); else creatingLoginBlock" [routerLink]="['/profile', 'creating']">СОЗДАТЬ</a>
-          <ng-template #creatingLoginBlock>
-            <a [routerLink]="['/auth']">СОЗДАТЬ</a>
-          </ng-template>
+          <a [routerLink]="['/profile']">СОЗДАННЫЕ</a>
         </li>
         <li class="site-navigation-item">
-          <a [routerLink]="['/begin']">ПРОЙТИ</a>
+          <a [routerLink]="['/profile', 'creating']">СОЗДАТЬ</a>
         </li>
         <li class="site-navigation-item">
-          <a [routerLink]="['/start', 'information']">О НАС</a>
+          <a [routerLink]="['/profile', 'settings']">НАСТРОЙКИ</a>
         </li>
         <li class="site-navigation-item">
-          <a *ngIf="auth.isAuthenticated(); else loginBlock" [routerLink]="['/profile']">ПРОФИЛЬ</a>
-          <ng-template #loginBlock>
-            <a [routerLink]="['/auth']">ВОЙТИ</a>
-          </ng-template>
+          <a [routerLink]="['/profile']">ПОМОШЬ</a>
+        </li>
+        <li class="site-navigation-item">
+          <a [routerLink]="['/']" (click)="logOut()">ВЫЙТИ</a>
         </li>
       </ul>
     </nav>
   </div>
 </header>
 <router-outlet></router-outlet>
->
+

@@ -234,3 +234,226 @@
   background-color: #1982C4;
 }
 
+@media screen and (min-width: 340px) and (max-width: 401px) {
+  .form_wrapper {
+    width: 340px;
+  }
+
+  .logo {
+    margin: 52px;
+  }
+
+  .registration_inputs {
+    grid-template-columns: 300px;
+    width: 300px;
+    margin: auto;
+  }
+
+  .input_wrapper {
+    grid-template-columns: 280px;
+  }
+
+  .send_button {
+    width: 280px;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-fix {
+    position: static;
+  }
+
+  .number {
+    position: static;
+  }
+
+  .wrapper {
+    margin: auto;
+    width: 340px;
+  }
+
+  .question {
+    font-size: 26px;
+    width: 340px;
+  }
+
+  .response_wrap {
+    width: 340px;
+  }
+
+  .response {
+    width: 340px;
+    font-size: 20px;
+  }
+
+  .result_wrapper {
+    width: 340px;
+  }
+
+  .text {
+    font-size: 48px;
+  }
+
+  .result {
+    margin-top: 60px;
+    font-size: 76px;
+  }
+
+  .button_finish {
+    width: 300px;
+  }
+}
+
+@media screen and (min-height: 660px) and (max-height: 751px) {
+  .form_wrapper {
+    margin-top: 100px;
+  }
+
+  .wrapper {
+    margin-top: 10px;
+  }
+
+  .question {
+    height: 90px;
+  }
+
+  .responses {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .response_wrap {
+    height: 100px;
+    border-radius: 10px;
+    margin-top: 18px;
+  }
+
+  .color {
+    height: 20px;
+    border-radius: 10px;
+  }
+
+  .response {
+    height: 80px;
+  }
+
+  .result_wrapper {
+    margin-top: 140px;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 420px) {
+  .form_wrapper {
+    width: 380px;
+  }
+
+  .logo {
+    margin: 72px;
+  }
+
+  .registration_inputs {
+    grid-template-columns: 340px;
+    width: 340px;
+    margin: auto;
+  }
+
+  .input_wrapper {
+    grid-template-columns: 320px;
+  }
+
+  .send_button {
+    width: 320px;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-fix {
+    position: static;
+  }
+
+  .number {
+    position: static;
+  }
+
+  .wrapper {
+    margin: auto;
+    width: 380px;
+  }
+
+  .question {
+    font-size: 30px;
+    width: 380px;
+  }
+
+  .response_wrap {
+    width: 380px;
+  }
+
+  .response {
+    width: 380px;
+    font-size: 24px;
+  }
+
+  .result_wrapper {
+    width: 380px;
+  }
+
+  .text {
+    font-size: 48px;
+  }
+
+  .result {
+    margin-top: 60px;
+    font-size: 76px;
+  }
+
+  .button_finish {
+    width: 340px;
+  }
+}
+
+@media screen and (min-height: 751px) and (max-height: 940px) {
+  .form_wrapper {
+    margin-top: 160px;
+  }
+
+  .wrapper {
+    margin-top: 10px;
+  }
+
+  .question {
+    height: 110px;
+  }
+
+  .responses {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .response_wrap {
+    height: 136px;
+    border-radius: 13px;
+    margin-top: 18px;
+  }
+
+  .color {
+    height: 26px;
+    border-radius: 13px;
+  }
+
+  .response {
+    height: 110px;
+  }
+
+  .result_wrapper {
+    margin-top: 200px;
+  }
+}

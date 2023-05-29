@@ -21,7 +21,7 @@ export class QuestionTooltipComponent {
 
   getLoverPosition(): number | null {
     if (this.topPosition) {
-      return this.topPosition - 220
+      return this.topPosition - 200
     }
     return null
   }

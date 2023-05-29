@@ -79,7 +79,7 @@ export class CreatingTestPageComponent implements OnInit{
     return true
   }
 
-  public downloadQRCode() {
+  downLoadQRCode() {
     const fileNameToDownload = 'qrcode_swipepick';
     // @ts-ignore
     const base64Img = document.getElementsByClassName('coolQRCode')[0].children[0]['src'];
@@ -94,7 +94,7 @@ export class CreatingTestPageComponent implements OnInit{
       })
   }
 
-  public async copyQRCode() {
+  async copyQRCode() {
     // @ts-ignore
     const imgURL = document.getElementsByClassName('coolQRCode')[0].children[0]['src'];
     const data = await fetch(imgURL)

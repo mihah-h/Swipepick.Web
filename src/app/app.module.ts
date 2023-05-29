@@ -22,7 +22,12 @@ import { CreatingPageComponent } from './creating-page/creating-page.component';
 import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { QuestionComponent } from './shared/components/question/question.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
-
+import {TestComponent} from "./shared/components/test/test.component";
+import {DatePipe, SlicePipe} from "@angular/common";
+import { QuestionTooltipComponent } from './shared/components/question-tooltip/question-tooltip.component';
+import { SearchPipe } from './shared/pipes/search.pipe';
+import { SortedPipe } from './shared/pipes/sorted.pipe';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,11 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     CreatingPageComponent,
     SettingsPageComponent,
     QuestionComponent,
+    TestComponent,
+    QuestionTooltipComponent,
+    SearchPipe,
+    SortedPipe,
+    HelpPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -52,7 +62,7 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     NgxQRCodeModule
 
   ],
-  providers: [AuthApiService, TestApiService],
+  providers: [AuthApiService, TestApiService, DatePipe, SearchPipe, SortedPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

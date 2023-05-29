@@ -1,0 +1,14 @@
+<ng-container *ngIf="showsTooltip">
+  <div
+      class="question"
+      [style.top]="getLoverPosition() + 'px'"
+      [style.left]="leftPosition + 'px'"
+  >
+    <div class="question-number">{{questionNumber + 1}} ВОПРОС</div>
+    <div class="question-title"> {{questionStatistic.questionContent}}</div>
+    <div class="statistic-wrapper">
+      <div class="true">Ответили верно: <span class="green">{{correctAnswersPercent}}%</span></div>
+      <div class="false">Ошиблись: <span class="red">{{wrongAnswersPercent}}%</span></div>
+    </div>
+  </div>
+</ng-container>

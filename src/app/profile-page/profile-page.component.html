@@ -1,2 +1,72 @@
-<a [routerLink]="['/']">На главную</a>
-<button (click)="auth.logout()">Выйити</button>
+<app-question-tooltip
+    [showsTooltip]="showsTooltip"
+    [topPosition]="topPosition"
+    [leftPosition]="leftPosition"
+    [questionStatistic]="questionStatistic"
+    [questionNumber]="questionNumber"
+>
+></app-question-tooltip>
+<div *ngIf="testsList; else loading" class="wrapper">
+  <div class="test-name-block">
+    <div class="button_wrapper">
+      <button
+          class="login sortButton"
+          [ngClass]="{button_switch_activated: isTests}"
+          (click)="isTests = true"
+      >ТЕСТЫ</button>
+      <button
+          class="sortButton"
+          [ngClass]="{button_switch_activated: !isTests}"
+          (click)="isTests = false"
+      >ОПРОСЫ</button>
+    </div>
+    <input [(ngModel)]="searchText" class="test-name" type="text" placeholder="Поиск теста">
+    <div class="button_wrapper">
+      <button
+          class="login sortButton"
+          [ngClass]="{button_switch_activated: sortParam === 'new'}"
+          (click)="sortParam = 'new'"
+      >НОВЫЕ</button>
+      <button
+          class="login sortButton"
+          [ngClass]="{button_switch_activated: sortParam === 'old'}"
+          (click)="sortParam= 'old'"
+      >СТАРЫЕ</button>
+      <button
+          class="login sortButton"
+          [ngClass]="{button_switch_activated: !true}"
+      >ВЕРНЫЕ</button>
+      <button
+          class="sortButton"
+          [ngClass]="{button_switch_activated: !true}"
+      >ОШИБКИ</button>
+    </div>
+    <button (click)="createTest()" class="create-test">
+      <img src="../../assets/images/plus%203.svg">
+    </button>
+  </div>
+  <div *ngIf="isTests; else not">
+    <div *ngFor="let test of testsList.tests | sorted:sortParam | search:searchText; let testNumber = index" class="tests-wrapper">
+      <app-test
+          [test]="test"
+          [testNumber]="testNumber"
+          (mouseoverEvent)="onHover($event)"
+          (mouseoutEvent)="onMouseout()"
+          (deleteTestEvent)="deleteTest(testNumber)"
+      ></app-test>
+    </div>
+    <div class="create-test-2">
+      <button class="create-test-2-button" (click)="createTest()">
+        <img class="plus" src="../../assets/images/plus%204.svg">
+      </button>
+    </div>
+  </div>
+  <ng-template #not>
+    <div class="working">В разработке</div>
+  </ng-template>
+</div>
+<ng-template #loading>
+  <div class="loading">
+    <img src="assets/images/loading.gif" alt="loading">
+  </div>
+</ng-template>

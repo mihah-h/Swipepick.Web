@@ -11,6 +11,7 @@ import {BeginPageComponent} from "./begin-page/begin-page.component";
 import {InformationPageComponent} from "./information-page/information-page.component";
 import {CreatingPageComponent} from "./creating-page/creating-page.component";
 import {SettingsPageComponent} from "./settings-page/settings-page.component";
+import {HelpPageComponent} from "./help-page/help-page.component";
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
       {path: 'creating', component: CreatingPageComponent},
       {path: 'creating-test', component: CreatingTestPageComponent},
       {path: 'settings', component: SettingsPageComponent},
+      {path: 'help', component: HelpPageComponent}
 
     ]},
   {path: 'auth', component: AuthPageComponent},

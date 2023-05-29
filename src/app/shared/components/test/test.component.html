@@ -1,0 +1,37 @@
+<div class="test-wrapper">
+  <div class="test-content">
+    <div class="name">{{test.title}}</div>
+    <div class="qr-code-wrapper">
+      <button class="qr-code" (click)="downLoadQRCode()">
+        <ngx-qrcode [width]="80" colorDark="#42445A" colorLight="#DDEAEE"
+                    cssClass="coolQRCode"
+                    [value]="'https://swipepick-kolchin031.b4a.run/test/' + test.uniqueCode"
+        ></ngx-qrcode>
+      </button>
+      <div class="test-id-wrapper">
+        <button class="test-id" (click)="copyTestId()">{{test.uniqueCode}}</button>
+        <button class="link" (click)="copyLink()">ссылка</button>
+      </div>
+    </div>
+    <div class="date">{{test.createdAt | date:'shortDate'}}</div>
+    <div class="del-wrapper">
+      <button class="lil-button-wrapper">
+        <img class="lil-button" src="../../../../assets/images/settings.svg">
+      </button>
+      <button class="lil-button-wrapper" (click)="deleteTest()">
+        <img class="lil-button" src="../../../../assets/images/del.svg">
+      </button>
+    </div>
+  </div>
+  <div class="test-statistic">
+    <div
+        *ngFor="let questionStatistic of test.questionStatistics; let questionNumber = index"
+        class="question-diagram"
+        [ngStyle]="{'height': questionStatisticsWidth}"
+        (mouseover)="mouseoverEvent.next({questionStatistic, $event, questionNumber})"
+        (mouseout)="mouseoutEvent.next()"
+    >
+      <div [ngStyle]="{'height': questionStatistic.correctAnswersPercent + 'px', 'width': questionStatisticsWidth + 'px'}" class="correct-answers"></div>
+    </div>
+  </div>
+</div>

@@ -55,3 +55,29 @@ export interface CreatedAnswers {
   correctAnswer: number
 }
 
+// Получение списка тесов
+
+export interface TestsList {
+  tests: Test[]
+}
+
+export interface Test {
+  title: string
+  uniqueCode: string
+  createdAt: string
+  questionStatistics: QuestionStatistic[]
+}
+
+export interface QuestionStatistic {
+  questionId: number
+  wrongAnswersPercent: number
+  correctAnswersPercent: number
+  questionContent: string
+}
+
+
+export interface TooltipInformation {
+  questionStatistic: QuestionStatistic
+  $event: MouseEvent
+  questionNumber: number
+}

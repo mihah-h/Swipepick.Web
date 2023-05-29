@@ -2,7 +2,7 @@ import {Inject, Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, tap} from "rxjs";
 import {UserLogin, UserLoginResponse, UserRegister} from "../interfaces/auth-interfaces";
-import {SelectedResponses, Question, SelectedResponse, CreatedTest} from "../interfaces/test-interfaces";
+import {SelectedResponses, Question, SelectedResponse, CreatedTest, TestsList} from "../interfaces/test-interfaces";
 import {AuthApiService} from "./auth-api.service";
 
 @Injectable()
@@ -30,6 +30,14 @@ export class TestApiService {
   createTest(createdTest: CreatedTest): Observable<string>{
     return this.http.post('https://swipepick.somee.com/api/tests/create', createdTest,
       {headers: this.header, responseType: "text"})
+  }
+
+  getTestsList(): Observable<TestsList> {
+    return this.http.get<TestsList>('https://swipepick.somee.com/api/tests', {headers: this.header})
+  }
+
+  deleteTest(id: string) {
+    return this.http.delete(`https://swipepick.somee.com/api/tests/${id}`, {headers: this.header})
   }
 
 }

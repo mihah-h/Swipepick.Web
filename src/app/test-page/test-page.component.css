@@ -1,4 +1,4 @@
-.registration_inputs {
+.data_inputs {
   display: grid;
   grid-template-columns: 450px;
   gap: 10px;
@@ -63,7 +63,7 @@
   margin-top: 100px;
 }
 
-.login_form {
+.data_form {
   background-color: #DDEAEE;
   border-radius: 14px;
   outline: solid #42445A 6px;
@@ -234,19 +234,37 @@
   background-color: #1982C4;
 }
 
-@media screen and (max-width: 401px) and (max-height: 751px){
-  .form_wrapper {
-    width: 340px;
-  }
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  /* */
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /* */
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
 
   .logo {
-    margin: 52px;
+    margin: 42px;
   }
 
-  .registration_inputs {
-    grid-template-columns: 300px;
-    width: 300px;
+  .form_wrapper {
+    max-width: 320px;
     margin: auto;
+    margin-top: 80px;
+  }
+
+  .data_inputs {
+    grid-template-columns: 320px;
+    gap: 10px;
   }
 
   .input_wrapper {
@@ -254,7 +272,7 @@
   }
 
   .send_button {
-    width: 280px;
+    max-width: 280px;
   }
 
   .logo-wrapper {
@@ -273,49 +291,12 @@
 
   .wrapper {
     margin: auto;
-    width: 340px;
+    max-width: 320px;
   }
 
   .question {
-    font-size: 26px;
-    width: 340px;
-  }
-
-  .response_wrap {
-    width: 340px;
-  }
-
-  .response {
-    width: 340px;
-    font-size: 20px;
-  }
-
-  .result_wrapper {
-    width: 340px;
-  }
-
-  .text {
-    font-size: 48px;
-  }
-
-  .result {
-    margin-top: 60px;
-    font-size: 76px;
-  }
-
-  .button_finish {
-    width: 300px;
-  }
-
-  .form_wrapper {
-    margin-top: 100px;
-  }
-
-  .wrapper {
-    margin-top: 10px;
-  }
-
-  .question {
+    font-size: 22px;
+    max-width: 320px;
     height: 90px;
   }
 
@@ -325,237 +306,46 @@
   }
 
   .response_wrap {
-    height: 100px;
+    max-width: 320px;
+    max-height: 105px;
     border-radius: 10px;
-    margin-top: 18px;
+    margin: auto;
+    margin-top: 16px;
   }
 
   .color {
-    height: 20px;
+    max-height: 20px;
     border-radius: 10px;
   }
 
   .response {
-    height: 80px;
-  }
-}
-
-@media screen and (min-width: 401px) and (max-width: 420px) and (min-height: 751px) and (max-height: 940px) {
-  .form_wrapper {
-    width: 380px;
-  }
-
-  .logo {
-    margin: 72px;
-  }
-
-  .registration_inputs {
-    grid-template-columns: 340px;
-    width: 340px;
-    margin: auto;
-  }
-
-  .input_wrapper {
-    grid-template-columns: 320px;
-  }
-
-  .send_button {
-    width: 320px;
-  }
-
-  .logo-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo-fix {
-    position: static;
-  }
-
-  .number {
-    position: static;
-  }
-
-  .wrapper {
-    margin: auto;
-    width: 380px;
-  }
-
-  .question {
-    font-size: 30px;
-    width: 380px;
-  }
-
-  .response_wrap {
-    width: 380px;
-  }
-
-  .response {
-    width: 380px;
-    font-size: 24px;
-  }
-
-  .result_wrapper {
-    width: 380px;
-  }
-
-  .text {
-    font-size: 48px;
-  }
-
-  .result {
-    margin-top: 60px;
-    font-size: 76px;
-  }
-
-  .button_finish {
-    width: 340px;
-  }
-
-  .form_wrapper {
-    margin-top: 160px;
-  }
-
-  .wrapper {
-    margin-top: 10px;
-  }
-
-  .question {
-    height: 110px;
-  }
-
-  .responses {
-    display: block;
-    margin-top: 20px;
-  }
-
-  .response_wrap {
-    height: 136px;
-    border-radius: 13px;
-    margin-top: 18px;
-  }
-
-  .color {
-    height: 26px;
-    border-radius: 13px;
-  }
-
-  .response {
-    height: 110px;
-  }
-
-  .result_wrapper {
-    margin-top: 100px;
-  }
-}
-
-@media screen and (max-width: 401px) and (max-height: 940px) and (min-height: 751px){
-  .form_wrapper {
-    width: 340px;
-  }
-
-  .logo {
-    margin: 52px;
-  }
-
-  .registration_inputs {
-    grid-template-columns: 300px;
-    width: 300px;
-    margin: auto;
-  }
-
-  .input_wrapper {
-    grid-template-columns: 280px;
-  }
-
-  .send_button {
-    width: 280px;
-  }
-
-  .logo-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo-fix {
-    position: static;
-  }
-
-  .number {
-    position: static;
-  }
-
-  .wrapper {
-    margin: auto;
-    width: 340px;
-  }
-
-  .question {
-    font-size: 26px;
-    width: 340px;
-  }
-
-  .response_wrap {
-    width: 340px;
-  }
-
-  .response {
-    width: 340px;
+    max-width: 320px;
     font-size: 20px;
+    max-height: 85px;
   }
 
   .result_wrapper {
-    width: 340px;
+    max-width: 320px;
+    border-radius: 10px;
+    margin-top: 100px;
   }
 
   .text {
-    font-size: 48px;
+    font-size: 44px;
   }
 
   .result {
-    margin-top: 60px;
-    font-size: 76px;
+    margin-top: 50px;
+    font-size: 70px;
   }
 
   .button_finish {
-    width: 300px;
+    max-width: 280px;
+    margin-top: 50px;
   }
+}
 
-  .form_wrapper {
-    margin-top: 160px;
-  }
-
-  .wrapper {
-    margin-top: 10px;
-  }
-
-  .question {
-    height: 110px;
-  }
-
-  .responses {
-    display: block;
-    margin-top: 20px;
-  }
-
-  .response_wrap {
-    height: 136px;
-    border-radius: 13px;
-    margin-top: 18px;
-  }
-
-  .color {
-    height: 26px;
-    border-radius: 13px;
-  }
-
-  .response {
-    height: 110px;
-  }
-
-  .result_wrapper {
-    margin-top: 100px;
-  }
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  /* */
 }

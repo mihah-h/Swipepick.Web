@@ -1,4 +1,4 @@
-.registration_inputs {
+.data_inputs {
   display: grid;
   grid-template-columns: 450px;
   gap: 10px;
@@ -65,7 +65,7 @@
   margin-top: 100px;
 }
 
-.login_form {
+.data_form {
   background-color: #DDEAEE;
   border-radius: 14px;
   outline: solid #42445A 6px;
@@ -74,4 +74,49 @@
 
 .logo {
   margin: 106.5px;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  /* */
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /* */
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+
+  .form_wrapper {
+    width: 320px;
+    margin-top: 80px;
+  }
+
+  .logo {
+    margin: 42px;
+  }
+
+  .data_inputs {
+    grid-template-columns: 320px;
+  }
+
+  .input_wrapper {
+    grid-template-columns: 280px;
+  }
+
+  .send_button {
+    max-width: 280px;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  /* */
 }

@@ -188,3 +188,95 @@
   color: #2F3034;
   border-color: #2F3034;
 }
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  /* */
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /* */
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+
+  .wrapper {
+    max-width: 320px;
+  }
+
+  .test-name-block {
+    margin-top: 20px;
+  }
+
+  .test-name {
+    margin-right: 10px;
+  }
+
+  .create {
+    padding: 3px;
+  }
+
+  .addQuestion {
+    width: 320px;
+    height: 535px;
+    margin-bottom: 20px;
+  }
+
+  .questions-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(320px, max-content));
+    margin-top: 15px;
+  }
+
+  .wrapper-created {
+    max-width: 320px;
+  }
+
+  .test-created-text {
+    font-size: 32px;
+    margin-top: 20px;
+  }
+
+  .information-wrapper {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .name {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .link-value {
+    font-size: 22px;
+  }
+
+  .qr-code-wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .dow {
+    background-color: #DDEAEE;
+    width: 30px;
+    margin-left: 5px;
+  }
+
+  .send_button {
+    margin: auto;
+    margin-top: 25px;
+    width: 320px;
+  }
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  /* */
+}

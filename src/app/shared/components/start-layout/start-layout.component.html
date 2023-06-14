@@ -1,10 +1,10 @@
 <header class="main-header">
   <div class="wrapper">
-    <nav class="main-nav">
+    <nav class="main-nav" [ngClass]="{open: navbarOpen}">
       <a class="logo" [routerLink]="['/']">
         <img src="./assets/images/logo2.svg" alt="logo"/>
       </a>
-      <ul class="site-navigation">
+      <ul class="site-navigation, nav" [ngClass]="{open: navbarOpen}">
         <li class="site-navigation-item">
           <a *ngIf="auth.isAuthenticated(); else creatingLoginBlock" [routerLink]="['/profile', 'creating']">СОЗДАТЬ</a>
           <ng-template #creatingLoginBlock>
@@ -24,6 +24,9 @@
           </ng-template>
         </li>
       </ul>
+      <div class="burger" (click)="navbarOpen = !navbarOpen" [ngClass]="{active: navbarOpen}">
+        <span></span>
+      </div>
     </nav>
   </div>
 </header>

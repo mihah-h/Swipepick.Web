@@ -4,7 +4,7 @@
       <a class="logo" [routerLink]="['/']">
         <img src="./assets/images/logo2.svg" alt="logo"/>
       </a>
-      <ul class="site-navigation">
+      <ul class="site-navigation, nav" [ngClass]="{open: navbarOpen}">
         <li class="site-navigation-item">
           <a [routerLink]="['/profile']">СОЗДАННЫЕ</a>
         </li>
@@ -21,6 +21,9 @@
           <a [routerLink]="['/']" (click)="logOut()">ВЫЙТИ</a>
         </li>
       </ul>
+      <div class="burger" (click)="navbarOpen = !navbarOpen" [ngClass]="{active: navbarOpen}">
+        <span></span>
+      </div>
     </nav>
   </div>
 </header>

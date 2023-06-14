@@ -7,6 +7,9 @@ import {AuthApiService} from "../../services/auth-api.service";
   styleUrls: ['../../../start-page/start-page.component.css']
 })
 export class StartLayoutComponent {
+
+  navbarOpen = false
+
   constructor(public auth: AuthApiService) {
   }
 }

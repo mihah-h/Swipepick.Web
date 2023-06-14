@@ -29,6 +29,7 @@ export interface SelectedResponses {
 export interface SelectedResponse {
   questionId: number
   answerCode: number
+  answerContent: string
 }
 
 

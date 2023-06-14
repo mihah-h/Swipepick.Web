@@ -4,7 +4,8 @@
       <a class="logo" [routerLink]="['/']">
         <img src="./assets/images/logo2.svg" alt="logo"/>
       </a>
-      <ul class="site-navigation, nav" [ngClass]="{open: navbarOpen}">
+      <ul class="site-navigation, nav" [ngClass]="{open: navbarOpen}"
+          (click)="navbarOpen = false">
         <li class="site-navigation-item">
           <a [routerLink]="['/profile']">СОЗДАННЫЕ</a>
         </li>

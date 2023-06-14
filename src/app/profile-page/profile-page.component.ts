@@ -31,7 +31,10 @@ export class ProfilePageComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.testServices.getTestsList().subscribe(testsList => this.testsList = testsList)
+    this.testServices.getTestsList().subscribe(testsList => {
+      this.testsList = testsList
+      console.log(testsList)
+    })
   }
 
   onHover(tooltipInformation: TooltipInformation) {

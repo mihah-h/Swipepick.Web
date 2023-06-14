@@ -70,12 +70,23 @@ export interface Test {
 }
 
 export interface QuestionStatistic {
-  questionId: number
-  wrongAnswersPercent: number
+  answerStatistic: AnswerStatistic
+  correctAnswer: number
+  correctAnswersCount: number
   correctAnswersPercent: number
   questionContent: string
+  questionId: number
+  wrongAnswersPercent: number
 }
 
+export interface AnswerStatistic {
+  answerVariants: AnswerVariant[]
+}
+
+export interface AnswerVariant {
+  answersPercent: number
+  variant: string
+}
 
 export interface TooltipInformation {
   questionStatistic: QuestionStatistic

@@ -151,15 +151,38 @@
   }
 
   .test-name-block {
-    display: grid;
-    grid-template-columns: 100px 200px;
-    grid-template-rows: repeat(2, 48px);
-    gap: 10px;
-    grid-auto-flow: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 150px;
-    margin-top: 40px;
+    display: block;
+    height: 220px;
+    margin-top: 30px;
+  }
+
+  .button_wrapper {
+    margin-bottom: 14px;
+  }
+
+  .test-name {
+    width: 320px;
+    margin-bottom: 14px;
+  }
+
+  .sortButton {
+    height: 46px;
+    width: 77px;
+  }
+
+  .create-test {
+    width: 320px;
+  }
+
+  .create-test-2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    height: 200px;
+  }
+
+  .create-test-2-button {
+    height: 200px;
+    width: 200px;
   }
 }
 

@@ -1,0 +1,56 @@
+<div class="question">
+  <div class="question-wrapper">
+    <div class="question-number-wrapper">
+      <div class="question-number">{{questionNumber + 1}} ВОПРОС</div>
+      <button (click)="deleteQuestion()" class="del">
+        <img class="delete" src="../../../../assets/images/del.svg">
+      </button>
+    </div>
+    <Form [formGroup]="questionForm">
+      <textarea
+          class="question-title"
+          placeholder="Введие вопрос"
+          formControlName="questionContent"
+      ></textarea>
+      <div class="answer-wrapper">
+        <div
+            class="answer"
+            [ngClass]="{answer_invalid: getAnswers().controls[answerIndex].invalid
+            && getAnswers().controls[answerIndex].touched}"
+            *ngFor="let answer of getAnswers().controls; let answerIndex = index"
+            formArrayName="answers"
+        >
+          <textarea
+              class="answer-textarea"
+              placeholder="Введите вариант ответа"
+              formControlName="{{answerIndex}}"
+          ></textarea>
+          <div class="radio-wrapper">
+            <button
+                class="del"
+                (click)="deleteAnswer(answerIndex)"
+            >
+              <img src="../../../../assets/images/delAnswer.svg">
+            </button>
+            <div
+                class="radio"
+                [ngClass]="{red: answerIndex === 0,
+                 yellow: answerIndex === 1,
+                 green: answerIndex === 2,
+                 blue: answerIndex === 3,
+                 answer_invalid_radio: getAnswers().controls[answerIndex].invalid
+                 && getAnswers().controls[answerIndex].touched}"
+            ></div>
+          </div>
+        </div>
+        <button
+            class="addAnswer"
+            (click)="addAnswers()"
+            *ngIf="getAnswers().value.length < 4"
+        >
+          <img src="../../../../assets/images/plus%201.svg">
+        </button>
+      </div>
+    </Form>
+  </div>
+</div>

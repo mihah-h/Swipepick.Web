@@ -30,7 +30,8 @@
         (mouseover)="mouseoverEvent.next({questionStatistic, $event, questionNumber})"
         (mouseout)="mouseoutEvent.next()"
     >
-      <div [ngStyle]="{'height': questionStatistic.correctAnswersPercent + 'px', 'width': questionStatisticsWidth + 'px'}" class="correct-answers"></div>
+      <div [ngStyle]="{'height': questionStatistic.correctAnswersPercent + 'px',
+       'width': questionStatisticsWidth + 'px'}" class="correct-answers"></div>
     </div>
   </div>
 </div>

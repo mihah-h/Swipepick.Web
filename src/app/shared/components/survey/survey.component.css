@@ -12,6 +12,8 @@
 }
 
 .name {
+  font-family: 'Oswald';
+  color: #42445A;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -19,16 +21,7 @@
   display: flex;
   align-items: center;
   margin-left: 14px;
-}
-
-.studentResult {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  width: 72px;
-  display: flex;
-  align-items: center;
-  margin-left: 14px;
+  background-color: #DDEAEE;
 }
 
 .qr-code-wrapper {
@@ -84,7 +77,7 @@
   display: flex;
   align-items: center;
   margin-left: 10px;
-  width: 250px;
+  width: 84px;
 }
 
 .del-wrapper {
@@ -120,17 +113,35 @@
   align-items: flex-end;
 }
 
+.correct-answers {
+  border-radius: 14px;
+  background-color: #35B85A;
+}
+
+.red {
+  border-radius: 14px;
+  background-color: #FF595E;
+}
+
+.yellow {
+  background-color: #FFCA3A;
+}
+
+.green {
+  background-color: #35B85A;
+}
+
+.blue {
+  border-radius: 14px;
+  background-color: #1982C4;
+}
+
 .question-diagram:last-child {
   margin-right: 0px;
 }
 
-.answer {
+.answers {
   border-radius: 14px;
-  background-color: #FF595E;
-  height: 100px;
-}
-
-.correctAnswer {
   background-color: #35B85A;
 }
 

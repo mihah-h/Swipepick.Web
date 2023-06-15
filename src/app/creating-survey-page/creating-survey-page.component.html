@@ -1,1 +1,51 @@
-<p>creating-survey-page works!</p>
+<div class="wrapper-created" *ngIf="createdSurveyId; else create">
+  <div class="test-created-text">Опрос успешно создан</div>
+  <div class="information-wrapper">
+    <div class="left-information">
+      <div class="name">Название: <span class="name-value">{{title.value}}</span></div>
+      <div class="name">Код: <span class="name-value">{{createdSurveyId}}</span></div>
+      <div class="name">
+        Ссылка:
+        <a class="link-value" [routerLink]="['/test', createdSurveyId]">
+          {{'https://swipepick-kolchin031.b4a.run/test/' + createdSurveyId.toString()}}
+        </a>
+      </div>
+    </div>
+    <div class="qr-code-wrapper">
+      <ngx-qrcode [width]="200" colorDark="#42445A" colorLight="#DDEAEE" class="qr-code"
+                  cssClass="coolQRCode"
+                  [value]="3 + createdSurveyId.toString()"
+      ></ngx-qrcode>
+      <div class="copy-wrapper">
+        <button class="copy" (click)="copyQRCode()">скопировать</button>
+        <button class="dow" (click)="downLoadQRCode()"><img src="../../assets/images/download.svg"></button>
+      </div>
+    </div>
+  </div>
+  <a
+      class="send_button"
+      [routerLink]="['/profile']"
+  >ГОТОВО</a>
+</div>
+<ng-template #create>
+  <div class="wrapper">
+    <div class="test-name-block">
+      <input class="test-name" type="text" placeholder="Введите название опроса" [formControl]="title">
+      <button class="create" [disabled]="validation()" (click)="savingQuestions$.next()">СОЗДАТЬ</button>
+    </div>
+    <div class="questions-wrapper">
+      <div *ngFor="let _ of numberOfSurvey; let questionNumber = index">
+        <app-survey-question #question
+                      [questionNumber]="questionNumber"
+                      [savingQuestionsObservable$]="savingQuestionsObservable$"
+                      [numberOfQuestions]="numberOfSurvey"
+                      (transmittingCreatedQuestion)="saveQuestion($event)"
+                      (deleteQuestionEvent)="del($event)"
+        ></app-survey-question>
+      </div>
+      <button class="addQuestion" (click)="addQuestion()">
+        <img src="../../../../assets/images/plus%202.svg">
+      </button>
+    </div>
+  </div>
+</ng-template>

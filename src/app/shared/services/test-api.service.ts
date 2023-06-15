@@ -8,7 +8,7 @@ import {
   SelectedResponse,
   CreatedTest,
   TestsList,
-  TestStatistic
+  TestStatistic, Surveys
 } from "../interfaces/test-interfaces";
 import {AuthApiService} from "./auth-api.service";
 
@@ -51,6 +51,11 @@ export class TestApiService {
 
   getTestStatistic(id: string): Observable<TestStatistic> {
     return this.http.get<TestStatistic>(`https://swipepick.somee.com/api/tests/test-statistic/${id}`,
+      {headers: this.header})
+  }
+
+  getSurveys(): Observable<Surveys> {
+    return this.http.get<Surveys>('https://swipepick.somee.com/api/tests/surveys',
       {headers: this.header})
   }
 

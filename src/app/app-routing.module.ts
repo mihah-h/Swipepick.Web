@@ -13,6 +13,7 @@ import {CreatingPageComponent} from "./creating-page/creating-page.component";
 import {SettingsPageComponent} from "./settings-page/settings-page.component";
 import {HelpPageComponent} from "./help-page/help-page.component";
 import {TestStatisticsPageComponent} from "./test-statistics-page/test-statistics-page.component";
+import {CreatingSurveyPageComponent} from "./creating-survey-page/creating-survey-page.component";
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
       {path: '', component: ProfilePageComponent, pathMatch: 'full'},
       {path: 'creating', component: CreatingPageComponent},
       {path: 'creating-test', component: CreatingTestPageComponent},
+      {path: 'creating-survey', component: CreatingSurveyPageComponent},
       {path: 'settings', component: SettingsPageComponent},
       {path: 'help', component: HelpPageComponent},
       {path: 'test-statistics/:id', component: TestStatisticsPageComponent}

@@ -36,6 +36,8 @@ import { StudentSortedPipe } from './shared/pipes/student-sorted.pipe';
 import { StudentSearchPipe } from './shared/pipes/student-search.pipe';
 import { QuestionSortedPipe } from './shared/pipes/question-sorted.pipe';
 import { QuestionSearchPipe } from './shared/pipes/question-search.pipe';
+import { SurveyQuestionComponent } from './shared/components/survey-question/survey-question.component';
+import { SurveyComponent } from './shared/components/survey/survey.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { QuestionSearchPipe } from './shared/pipes/question-search.pipe';
     StudentSearchPipe,
     QuestionSortedPipe,
     QuestionSearchPipe,
+    SurveyQuestionComponent,
+    SurveyComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

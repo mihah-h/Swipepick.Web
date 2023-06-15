@@ -127,3 +127,70 @@
   background-color: #35B85A;
 }
 
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  /* */
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /* */
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+
+  .test-wrapper {
+    height: 200px;
+  }
+
+  .test-content {
+    width: 320px;
+    flex-flow: row wrap;
+  }
+
+  .test-statistic {
+    display: none;
+  }
+
+  .name {
+    height: 100px;
+    width: 146px;
+    font-size: 18px;
+  }
+
+  .qr-code-wrapper {
+    height: 100px;
+    width: 150px;
+  }
+
+  .test-id-wrapper {
+    height: 100px;
+  }
+
+  .date {
+    height: 100px;
+  }
+
+  .del-wrapper {
+    height: 100px;
+  }
+
+  .test-id {
+    font-size: 18px;
+  }
+
+  .link {
+    font-size: 20px;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  /* */
+}

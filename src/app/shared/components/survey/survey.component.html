@@ -1,0 +1,51 @@
+<div class="test-wrapper">
+  <div class="test-content">
+    <button class="name" (click)="openStatistic()">{{survey.title}}</button>
+    <div class="qr-code-wrapper">
+      <button class="qr-code" (click)="downLoadQRCode()">
+        <ngx-qrcode [width]="80" colorDark="#42445A" colorLight="#DDEAEE"
+                    cssClass="coolQRCode"
+                    [value]="'https://swipepick-kolchin031.b4a.run/test/' + survey.uniqueCode"
+        ></ngx-qrcode>
+      </button>
+      <div class="test-id-wrapper">
+        <button class="test-id" (click)="copyTestId()">{{survey.uniqueCode}}</button>
+        <button class="link" (click)="copyLink()">ссылка</button>
+      </div>
+    </div>
+    <div class="date">{{survey.createdAt | date:'shortDate'}}</div>
+    <div class="del-wrapper">
+      <button class="lil-button-wrapper">
+        <img class="lil-button" src="../../../../assets/images/settings.svg">
+      </button>
+      <button class="lil-button-wrapper" (click)="deleteTest()">
+        <img class="lil-button" src="../../../../assets/images/del.svg">
+      </button>
+    </div>
+  </div>
+  <div class="test-statistic">
+    <div
+        *ngFor="let surveyStatistic of survey.questionStatistics; let questionNumber = index"
+        class="question-diagram"
+        (mouseover)="mouseoverEvent.next({questionStatistic:surveyStatistic, $event, questionNumber})"
+        (mouseout)="mouseoutEvent.next()"
+    >
+    <div *ngIf="surveyStatistic.answerVariants[0]; else b">
+      <div
+          [ngStyle]="{'height': surveyStatistic.answerVariants[0].answersPercent + 'px',
+       'width': questionStatisticsWidth + 'px'}" class="correct-answers"
+            [ngClass]="{yellow: true}"
+      ></div>
+    </div>
+      <ng-template #b>
+        <div [ngStyle]="{'height': '50' + 'px',
+       'width': questionStatisticsWidth + 'px'}" class="correct-answers"></div>
+      </ng-template>
+<!--    <div [ngStyle]="{'height': surveyStatistic.answerVariants[0].answersPercent + 'px', 'width': questionStatisticsWidth + 'px'}">-->
+<!--      <div *ngFor="let answerVariant of surveyStatistic.answerVariants; let index = index"-->
+<!--           [ngClass]="{red: index === 0, yellow: index === 1, green: index === 2, blue: index === 3}"></div>-->
+<!--    </div>-->
+    </div>
+  </div>
+</div>
+

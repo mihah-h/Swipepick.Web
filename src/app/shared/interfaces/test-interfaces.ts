@@ -39,11 +39,11 @@ export interface SelectedResponse {
 export  interface CreatedTest {
   userEmail: string
   testDto: TestDto
-  IsSurvey?: boolean
 }
 
 export interface TestDto {
   title: string
+  isSurvey?: boolean
   questions: CreatedQuestion[]
 }
 
@@ -141,5 +141,29 @@ export interface AnswerStatistic {
 
 export interface AnswerVariants {
   variant: string
+  answersPercent: number
+}
+
+
+// опрос
+
+export interface Surveys {
+  surveys: Survey[]
+}
+
+export interface QuestionStatistic {
+  answerVariants: AnswerVariants[]
+}
+
+export interface Survey {
+  title: string,
+  uniqueCode: string,
+  createdAt: string,
+  correctAnswersPercent: number,
+  questionStatistics: QuestionStatistic[]
+}
+
+export interface AnswerVariants {
+  variant: string,
   answersPercent: number
 }

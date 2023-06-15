@@ -1,0 +1,282 @@
+.answer {
+  margin: 5px;
+}
+
+.input {
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  font-size: 18px;
+  color: #42445A;
+  height: 54px;
+  border-radius: 14px;
+  border: 3px solid #42445A;
+}
+
+.input.ng-touched.ng-invalid {
+  border-color: #E04848;
+}
+
+.wrapper {
+  max-width: 1310px;
+  margin: auto;
+}
+
+.test-name-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  margin-top: 40px;
+}
+
+.test-name {
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  font-size: 18px;
+  color: #42445A;
+  height: 54px;
+  border-radius: 14px;
+  border: 4px solid #42445A;
+  width: 1160px;
+  margin-right: 20px;
+  padding-left: 10px;
+}
+
+.test-name:hover {
+  border-color: #2F3034;
+}
+
+.test-name:focus {
+  border-color: #2F3034;
+}
+
+.create {
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 20px;
+  color: #42445A;
+  border-radius: 14px;
+  height: 54px;
+  border: #42445A 5px solid;
+  width: 130px;
+}
+
+.create:hover {
+  border-color: #2F3034;
+  color: #2F3034;
+}
+
+.addQuestion {
+  background-color: #DDEAEE;
+  border: #42445A solid 6px;
+  width: 430px;
+  height: 380px;
+  border-radius: 14px;
+}
+
+.questions-wrapper {
+  grid-template-columns: repeat(auto-fill, minmax(430px, max-content));
+  margin-top: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.test-name.ng-touched.ng-invalid {
+  border-color: #FF595E;
+}
+
+.wrapper-created {
+  margin: auto;
+  max-width: 800px;
+}
+
+.test-created-text {
+  margin: auto;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 25px;
+}
+
+.information-wrapper {
+  display: flex;
+  margin-top: 70px;
+}
+
+.left-information {
+}
+
+.name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.name-value {
+  font-weight: 600;
+}
+
+.link-value {
+  text-decoration-line: underline;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.link-value:hover {
+  color: #2F3034;
+}
+
+.qr-code-wrapper {
+}
+
+.qr-code {
+  height: 200px;
+}
+
+.copy-wrapper {
+  display: flex;
+  margin: auto;
+}
+
+.copy {
+  color: #42445A;
+  font-family: 'Oswald';
+  text-decoration-line: underline;
+  background-color: #DDEAEE;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  width: 120px;
+  margin-right: 5px;
+  margin-left: 18px;
+}
+
+.copy:hover {
+  color: #2F3034;
+}
+
+.dow {
+  background-color: #DDEAEE;
+  width: 30px;
+  margin-left: 5px;
+}
+
+.send_button {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 45px;
+  display: block;
+  background-color: #DDEAEE;
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 20px;
+  color: #42445A;
+  border-radius: 14px;
+  height: 54px;
+  margin-left: 588px;
+  margin-top: 25px;
+  border: #42445A 5px solid;
+  width: 200px;
+}
+
+.send_button:hover {
+  color: #2F3034;
+  border-color: #2F3034;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  /* */
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /* */
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+
+  .wrapper {
+    max-width: 320px;
+  }
+
+  .test-name-block {
+    margin-top: 20px;
+  }
+
+  .test-name {
+    margin-right: 10px;
+  }
+
+  .create {
+    padding: 3px;
+  }
+
+  .addQuestion {
+    width: 320px;
+    height: 535px;
+    margin-bottom: 20px;
+  }
+
+  .questions-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(320px, max-content));
+    margin-top: 15px;
+  }
+
+  .wrapper-created {
+    max-width: 320px;
+  }
+
+  .test-created-text {
+    font-size: 32px;
+    margin-top: 20px;
+  }
+
+  .information-wrapper {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .name {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .link-value {
+    font-size: 22px;
+  }
+
+  .qr-code-wrapper {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .dow {
+    background-color: #DDEAEE;
+    width: 30px;
+    margin-left: 5px;
+  }
+
+  .send_button {
+    margin: auto;
+    margin-top: 25px;
+    width: 320px;
+  }
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  /* */
+}

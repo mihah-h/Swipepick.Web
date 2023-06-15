@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthApiService} from "../shared/services/auth-api.service";
 import {TestApiService} from "../shared/services/test-api.service";
-import {QuestionStatistic, TestsList, TooltipInformation} from "../shared/interfaces/test-interfaces";
+import {QuestionStatistic, Survey, Surveys, TestsList, TooltipInformation} from "../shared/interfaces/test-interfaces";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class ProfilePageComponent implements OnInit{
 
   testsList!: TestsList
+  surveysList!: Surveys
 
   showsTooltip = false
   questionStatistic!: QuestionStatistic
@@ -34,6 +35,11 @@ export class ProfilePageComponent implements OnInit{
     this.testServices.getTestsList().subscribe(testsList => {
       this.testsList = testsList
       console.log(testsList)
+    })
+
+    this.testServices.getSurveys().subscribe(surveysList => {
+      this.surveysList = surveysList
+      console.log(this.surveysList)
     })
   }
 

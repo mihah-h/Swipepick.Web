@@ -1,0 +1,19 @@
+<div class="test-wrapper">
+  <div class="test-content">
+    <div class="name">{{student.name}} {{student.lastname}}</div>
+    <div class="studentResult">{{student.testResult}}/{{student.testQuestionsCount}}</div>
+    <div class="date">{{student.createdAt | date:'short' }}</div>
+  </div>
+  <div class="test-statistic">
+    <div
+        *ngFor="let studentAnswer of student.studentAnswer.answers; let questionNumber = index"
+        class="question-diagram"
+    >
+      <div
+          class="answer"
+          [ngStyle]="{'width': studentStatisticsWidth + 'px'}"
+          [ngClass]="{correctAnswer: studentAnswer.isCorrect}"
+      ></div>
+  </div>
+</div>
+

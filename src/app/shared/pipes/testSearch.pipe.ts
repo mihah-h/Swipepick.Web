@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {Test} from "../interfaces/test-interfaces";
 
 @Pipe({
-  name: 'search'
+  name: 'testSearchPipe'
 })
-export class SearchPipe implements PipeTransform {
+export class TestSearchPipe implements PipeTransform {
 
   transform(tests: Test[], search = ''): Test[] {
     if (!search.trim()) {

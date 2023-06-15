@@ -1,9 +1,7 @@
 .question {
-  background-color: #DDEAEE;
-  position: fixed;
   border: #42445A solid 6px;
   width: 360px;
-  height: 360px;
+  height: 420px;
   border-radius: 14px;
 }
 
@@ -16,22 +14,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
 .question-number {
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .question-title {
   background-color: #DDEAEE;
   font-family: 'Oswald';
-  font-size: 16px;
+  font-size: 18px;
   color: #42445A;
-  height: 72px;
+  height: 85px;
   border-radius: 14px;
   border: 4px solid #42445A;
   padding: 10px;
@@ -40,43 +38,44 @@
   width: 324px;
   margin-top: 5px;
   text-align: center;
-  line-height: 49px;
+  line-height: 62px;
 }
 
 .answer-wrapper {
   margin: auto;
+  margin-top: 6px;
   display: grid;
-  grid-template-columns: 159px 159px;
-  gap: 0px 6px;
+  grid-template-columns: 157px 157px;
+  gap: 0 6px;
 }
 
 .percent {
-  font-size: 16px;
+  font-size: 18px;
   color: #FF595E;
-  margin-left: 124px;
+  margin-left: 122px;
 }
 
 .answer {
   background-color: #DDEAEE;
-  height: 85px;
+  height: 100px;
   border-radius: 14px;
   border: 4px solid #42445A;
-  width: 159px;
+  width: 157px;
   display: flex;
 }
 
 .answer-textarea {
   font-family: 'Oswald';
-  font-size: 16px;
+  font-size: 18px;
   color: #42445A;
-  height: 77px;
-  width: 162px;
+  height: 92px;
+  width: 133px;
   padding: 10px;
   padding-top: 5px;
   background-color: #DDEAEE;
   border-radius: 14px;
   text-align: center;
-  line-height: 62px;
+  line-height: 77px;
 }
 
 .radio-wrapper {
@@ -88,16 +87,13 @@
   border-radius: 14px;
   outline: #42445A solid 4px;
   width: 24px;
-  height: 77px;
-}
-
-.correct {
-  background-color: #35B85A;
+  height: 92px;
 }
 
 .correctPercent {
   color: #35B85A;
 }
 
-
-
+.correct {
+  background-color: #35B85A;
+}

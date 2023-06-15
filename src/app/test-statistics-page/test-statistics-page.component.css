@@ -3,12 +3,18 @@
   max-width: 1100px;
 }
 
+.testTitle {
+  font-weight: 700;
+  font-size: 36px;
+  margin-top: 20px;
+}
+
 .test-name-block {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 54px;
-  margin-top: 40px;
+  margin-top: 15px;
 }
 
 .test-name {
@@ -19,8 +25,12 @@
   height: 46px;
   border-radius: 14px;
   outline: 4px solid #42445A;
-  width: 360px;
+  width: 440px;
   padding-left: 10px;
+}
+
+.question_name {
+  width: 544px;
 }
 
 .test-name:hover {
@@ -99,6 +109,12 @@
   margin-top: 20px;
 }
 
+.questions-wrapper {
+  grid-template-columns: repeat(auto-fill, minmax(360px, max-content));
+  display: grid;
+  gap: 10px;
+}
+
 .create-test-2 {
   outline: #42445A solid 4px;
   border-radius: 14px;
@@ -119,7 +135,7 @@
   width: 80px;
   height: 80px;
   margin: auto;
-  margin-top: 200px;
+  margin-top: 240px;
 }
 
 .working {
@@ -127,43 +143,4 @@
   font-size: 50px;
   width: 260px;
   margin-top: 40px;
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width: 1200px) {
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
-  /* */
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
-  /* */
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width: 480px) {
-  .wrapper {
-    max-width: 320px;
-  }
-
-  .test-name-block {
-    display: grid;
-    grid-template-columns: 100px 200px;
-    grid-template-rows: repeat(2, 48px);
-    gap: 10px;
-    grid-auto-flow: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 150px;
-    margin-top: 40px;
-  }
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width: 320px) {
-  /* */
 }

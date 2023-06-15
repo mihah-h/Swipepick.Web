@@ -39,6 +39,7 @@ export interface SelectedResponse {
 export  interface CreatedTest {
   userEmail: string
   testDto: TestDto
+  IsSurvey?: boolean
 }
 
 export interface TestDto {
@@ -67,6 +68,7 @@ export interface Test {
   uniqueCode: string
   createdAt: string
   questionStatistics: QuestionStatistic[]
+  correctAnswersPercent: number
 }
 
 export interface QuestionStatistic {
@@ -92,4 +94,52 @@ export interface TooltipInformation {
   questionStatistic: QuestionStatistic
   $event: MouseEvent
   questionNumber: number
+}
+
+
+// Статистика
+
+export interface TestStatistic {
+  studentStatistic: StudentStatisticItem[]
+  testResult: TestResultItem[]
+  testTitle: string
+}
+
+export interface StudentStatisticItem {
+  name: string
+  lastname: string
+  testResult: number
+  createdAt: string
+  testQuestionsCount: number
+  studentAnswer: StudentAnswer
+}
+
+export interface StudentAnswer {
+  answers: Answer[]
+}
+
+export interface Answer {
+  variant: number
+  questionId: number
+  answerContent: string
+  isCorrect: boolean
+}
+
+export interface TestResultItem {
+  questionId: number
+  wrongAnswersPercent: number
+  correctAnswersPercent: number
+  questionContent: string
+  answerStatistic: AnswerStatistic
+  correctAnswersCount: number
+  correctAnswer: number
+}
+
+export interface AnswerStatistic {
+  answerVariants: AnswerVariants[]
+}
+
+export interface AnswerVariants {
+  variant: string
+  answersPercent: number
 }

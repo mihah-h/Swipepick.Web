@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {QuestionStatistic, Test, TestsList, TooltipInformation} from "../../interfaces/test-interfaces";
 import {TestApiService} from "../../services/test-api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-test',
@@ -22,8 +23,10 @@ export class TestComponent implements OnInit{
 
   questionStatisticsWidth!: number
 
-  constructor(private testService: TestApiService) {
-  }
+  constructor(
+    private testService: TestApiService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
     this.questionStatisticsWidth = this.getQuestionStatisticsWidth()
@@ -33,6 +36,10 @@ export class TestComponent implements OnInit{
   getQuestionStatisticsWidth() {
     const statisticsBlockWidth = 550
     return (statisticsBlockWidth - ((this.test.questionStatistics.length - 1) * 4)) / this.test.questionStatistics.length
+  }
+
+  openStatistic() {
+    this.router.navigate(['/profile', 'test-statistics', this.test.uniqueCode])
   }
 
   downLoadQRCode() {

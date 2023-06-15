@@ -25,9 +25,17 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import {TestComponent} from "./shared/components/test/test.component";
 import {DatePipe, SlicePipe} from "@angular/common";
 import { QuestionTooltipComponent } from './shared/components/question-tooltip/question-tooltip.component';
-import { SearchPipe } from './shared/pipes/search.pipe';
-import { SortedPipe } from './shared/pipes/sorted.pipe';
+import { TestSearchPipe } from './shared/pipes/testSearch.pipe';
+import { TestDateSortedPipe } from './shared/pipes/test-sorted.pipe';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { CreatingSurveyPageComponent } from './creating-survey-page/creating-survey-page.component';
+import { TestStatisticsPageComponent } from './test-statistics-page/test-statistics-page.component';
+import { StudentComponent } from './shared/components/student/student.component';
+import { QuestionStatisticComponent } from './shared/components/question-statistic/question-statistic.component';
+import { StudentSortedPipe } from './shared/pipes/student-sorted.pipe';
+import { StudentSearchPipe } from './shared/pipes/student-search.pipe';
+import { QuestionSortedPipe } from './shared/pipes/question-sorted.pipe';
+import { QuestionSearchPipe } from './shared/pipes/question-search.pipe';
 
 @NgModule({
   declarations: [
@@ -46,9 +54,17 @@ import { HelpPageComponent } from './help-page/help-page.component';
     QuestionComponent,
     TestComponent,
     QuestionTooltipComponent,
-    SearchPipe,
-    SortedPipe,
+    TestSearchPipe,
+    TestDateSortedPipe,
     HelpPageComponent,
+    CreatingSurveyPageComponent,
+    TestStatisticsPageComponent,
+    StudentComponent,
+    QuestionStatisticComponent,
+    StudentSortedPipe,
+    StudentSearchPipe,
+    QuestionSortedPipe,
+    QuestionSearchPipe,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -62,7 +78,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
     NgxQRCodeModule
 
   ],
-  providers: [AuthApiService, TestApiService, DatePipe, SearchPipe, SortedPipe],
+  providers: [AuthApiService, TestApiService, DatePipe, TestSearchPipe, TestDateSortedPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 <div class="test-wrapper">
   <div class="test-content">
-    <div class="name">{{test.title}}</div>
+    <button class="name" (click)="openStatistic()">{{test.title}}</button>
     <div class="qr-code-wrapper">
       <button class="qr-code" (click)="downLoadQRCode()">
         <ngx-qrcode [width]="80" colorDark="#42445A" colorLight="#DDEAEE"
@@ -27,7 +27,6 @@
     <div
         *ngFor="let questionStatistic of test.questionStatistics; let questionNumber = index"
         class="question-diagram"
-        [ngStyle]="{'height': questionStatisticsWidth}"
         (mouseover)="mouseoverEvent.next({questionStatistic, $event, questionNumber})"
         (mouseout)="mouseoutEvent.next()"
     >

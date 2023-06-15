@@ -1,0 +1,84 @@
+<div class="wrapper" *ngIf="testStatistics; else loading" >
+  <p class="testTitle">{{testStatistics.testTitle}}</p>
+  <div class="test-name-block">
+    <div class="button_wrapper">
+      <button
+          class="login sortButton"
+          [ngClass]="{button_switch_activated: isStudentsStatistic}"
+          (click)="isStudentsStatistic = true"
+      >ЛЮДИ</button>
+      <button
+          class="sortButton"
+          [ngClass]="{button_switch_activated: !isStudentsStatistic}"
+          (click)="isStudentsStatistic = false"
+      >ВОПРОСЫ</button>
+    </div>
+    <input [(ngModel)]="search" class="test-name" type="text" placeholder="Поиск" [ngClass]="{question_name: !isStudentsStatistic}">
+    <div class="button_wrapper" *ngIf="isStudentsStatistic; else questionStatistic">
+      <button
+          class="login sortButton"
+          [ngClass]="{button_switch_activated: studentSortParam === 'new'}"
+          (click)="studentSortParam = 'new'"
+      >НОВЫЕ</button>
+      <button
+          class="login sortButton"
+          [ngClass]="{button_switch_activated: studentSortParam === 'old'}"
+          (click)="studentSortParam = 'old'"
+      >СТАРЫЕ</button>
+      <button
+          class="login sortButton"
+          [ngClass]="{button_switch_activated: studentSortParam === 'loyal'}"
+          (click)="studentSortParam = 'loyal'"
+      >ВЕРНЫЕ</button>
+      <button
+          class="sortButton"
+          [ngClass]="{button_switch_activated: studentSortParam === 'erroneous'}"
+          (click)="studentSortParam = 'erroneous'"
+      >ОШИБКИ</button>
+    </div>
+    <ng-template #questionStatistic>
+      <div class="button_wrapper">
+        <button
+            class="login sortButton"
+            [ngClass]="{button_switch_activated: questionSortParam === 'standard'}"
+            (click)="questionSortParam = 'standard'"
+        >ОБЫЧНОЕ</button>
+        <button
+            class="login sortButton"
+            [ngClass]="{button_switch_activated: questionSortParam === 'loyal'}"
+            (click)="questionSortParam = 'loyal'"
+        >ВЕРНЫЕ</button>
+        <button
+            class="sortButton"
+            [ngClass]="{button_switch_activated: questionSortParam === 'erroneous'}"
+            (click)="questionSortParam = 'erroneous'"
+        >ОШИБКИ</button>
+      </div>
+    </ng-template>
+  </div>
+  <div class="tests-wrapper">
+    <div *ngIf="isStudentsStatistic; else not">
+      <div *ngFor="let student of testStatistics.studentStatistic
+      | studentSortedPipe: studentSortParam
+      | studentSearchPipe:search" class="test-wrapper">
+        <app-student [student]="student"></app-student>
+      </div>
+    </div>
+    <ng-template #not>
+      <div class="questions-wrapper">
+        <div *ngFor="let question of testStatistics.testResult | questionSorted: questionSortParam
+        | questionSearch:search; let questionNumber = index">
+          <app-question-statistic
+              [question]="question"
+              [questionNumber]="questionNumber"
+          ></app-question-statistic>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="loading">
+    <img src="assets/images/loading.gif" alt="loading">
+  </div>
+</ng-template>

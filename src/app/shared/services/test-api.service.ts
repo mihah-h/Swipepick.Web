@@ -2,7 +2,14 @@ import {Inject, Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, tap} from "rxjs";
 import {UserLogin, UserLoginResponse, UserRegister} from "../interfaces/auth-interfaces";
-import {SelectedResponses, Question, SelectedResponse, CreatedTest, TestsList} from "../interfaces/test-interfaces";
+import {
+  SelectedResponses,
+  Question,
+  SelectedResponse,
+  CreatedTest,
+  TestsList,
+  TestStatistic
+} from "../interfaces/test-interfaces";
 import {AuthApiService} from "./auth-api.service";
 
 @Injectable()
@@ -33,11 +40,18 @@ export class TestApiService {
   }
 
   getTestsList(): Observable<TestsList> {
-    return this.http.get<TestsList>('https://swipepick.somee.com/api/tests', {headers: this.header})
+    return this.http.get<TestsList>('https://swipepick.somee.com/api/tests',
+      {headers: this.header})
   }
 
   deleteTest(id: string) {
-    return this.http.delete(`https://swipepick.somee.com/api/tests/${id}`, {headers: this.header})
+    return this.http.delete(`https://swipepick.somee.com/api/tests/${id}`,
+      {headers: this.header})
+  }
+
+  getTestStatistic(id: string): Observable<TestStatistic> {
+    return this.http.get<TestStatistic>(`https://swipepick.somee.com/api/tests/test-statistic/${id}`,
+      {headers: this.header})
   }
 
 }

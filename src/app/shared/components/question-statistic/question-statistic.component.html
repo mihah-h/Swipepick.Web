@@ -1,0 +1,30 @@
+<div class="question">
+  <div class="question-wrapper">
+    <div class="question-number-wrapper">
+      <div class="question-number">{{questionNumber + 1}} ВОПРОС</div>
+    </div>
+    <div class="question-title">
+      {{question.questionContent}}
+    </div>
+    <div class="answer-wrapper">
+      <div *ngFor="let answerVariant of question.answerStatistic.answerVariants;
+         let answerVariantIndex = index">
+        <div
+            class="percent"
+            [ngClass]="{correctPercent: isCorrectAnswer(answerVariantIndex)}"
+        >{{answerVariant.answersPercent}}%</div>
+        <div class="answer">
+          <div class="answer-textarea">
+            {{answerVariant.variant}}
+          </div>
+          <div class="radio-wrapper">
+            <div
+                class="radio"
+                [ngClass]="{correct: isCorrectAnswer(answerVariantIndex)}"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

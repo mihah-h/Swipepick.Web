@@ -25,7 +25,7 @@ export class TestPageComponent implements OnInit, OnDestroy{
 
   constructor(
     private route: ActivatedRoute,
-    private testService: TestApiService
+    private testService: TestApiService,
   ) {}
 
   ngOnInit() {

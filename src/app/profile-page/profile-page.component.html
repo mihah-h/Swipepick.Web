@@ -5,8 +5,8 @@
     [questionStatistic]="questionStatistic"
     [questionNumber]="questionNumber"
 >
-></app-question-tooltip>
-<div *ngIf="testsList; else loading" class="wrapper">
+</app-question-tooltip>
+<div class="wrapper">
   <div class="test-name-block">
     <div class="button_wrapper">
       <button
@@ -34,39 +34,43 @@
       >СТАРЫЕ</button>
       <button
           class="login sortButton"
-          [ngClass]="{button_switch_activated: !true}"
+          [ngClass]="{button_switch_activated: sortParam === 'loyal'}"
+          (click)="sortParam= 'loyal'"
       >ВЕРНЫЕ</button>
       <button
           class="sortButton"
-          [ngClass]="{button_switch_activated: !true}"
+          [ngClass]="{button_switch_activated: sortParam === 'erroneous'}"
+          (click)="sortParam= 'erroneous'"
       >ОШИБКИ</button>
     </div>
     <button (click)="createTest()" class="create-test">
       <img src="../../assets/images/plus%203.svg">
     </button>
   </div>
-  <div *ngIf="isTests; else not">
-    <div *ngFor="let test of testsList.tests | sorted:sortParam | search:searchText; let testNumber = index" class="tests-wrapper">
-      <app-test
-          [test]="test"
-          [testNumber]="testNumber"
-          (mouseoverEvent)="onHover($event)"
-          (mouseoutEvent)="onMouseout()"
-          (deleteTestEvent)="deleteTest(testNumber)"
-      ></app-test>
+  <div *ngIf="testsList; else loading" class="tests-wrapper">
+    <div *ngIf="isTests; else not">
+      <div *ngFor="let test of testsList.tests | testSortedPipe:sortParam | testSearchPipe:searchText; let testNumber = index" class="test-wrapper">
+        <app-test
+            [test]="test"
+            [testNumber]="testNumber"
+            (mouseoverEvent)="onHover($event)"
+            (mouseoutEvent)="onMouseout()"
+            (deleteTestEvent)="deleteTest(testNumber)"
+        ></app-test>
+      </div>
+      <div class="create-test-2">
+        <button class="create-test-2-button" (click)="createTest()">
+          <img class="plus" src="../../assets/images/plus%204.svg">
+        </button>
+      </div>
     </div>
-    <div class="create-test-2">
-      <button class="create-test-2-button" (click)="createTest()">
-        <img class="plus" src="../../assets/images/plus%204.svg">
-      </button>
-    </div>
+    <ng-template #not>
+      <div class="working">В разработке</div>
+    </ng-template>
   </div>
-  <ng-template #not>
-    <div class="working">В разработке</div>
+  <ng-template #loading>
+    <div class="loading">
+      <img src="assets/images/loading.gif" alt="loading">
+    </div>
   </ng-template>
 </div>
-<ng-template #loading>
-  <div class="loading">
-    <img src="assets/images/loading.gif" alt="loading">
-  </div>
-</ng-template>
